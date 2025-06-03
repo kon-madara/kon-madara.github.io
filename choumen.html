@@ -15,11 +15,15 @@
     height: 100vh;
     overflow-y: scroll;
   }
-
+@media (max-width: 600px) {
   .iphone-frame {
+    position: fixed;
+    top: 50%
+    left: 50%
+    transform: scale(0.9) translate(-50%, -50%);
     width: 100%;
-    max-width: 375px;
-    height: 667px;
+    max-width: 500px;
+    height: 890px;
     border: 16px solid #333;
     border-radius: 36px;
     background-color: #fff;
@@ -27,6 +31,7 @@
     box-shadow: 0 0 20px rgba(255,255,255,0.2);
     position: relative;
     margin: auto;
+  }
   }
 
   .notch {
