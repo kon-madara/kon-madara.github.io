@@ -6,25 +6,28 @@
   <title>地獄手帖 - iPhone風</title>
   <style>
     body {
-      background-color: #000;
-      font-family: 'Helvetica Neue', sans-serif;
-      margin: 0;
-      padding: 2rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    .iphone-frame {
-      width: 375px;
-      height: 667px;
-      border: 16px solid #333;
-      border-radius: 36px;
-      position: relative;
-      background-color: #fff;
-      overflow: hidden;
-      box-shadow: 0 0 20px rgba(255,255,255,0.1);
-    }
+  background-color: #000;
+  font-family: 'Helvetica Neue', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  overflow-y: scroll;
+}
+    }.iphone-frame {
+  width: 100%;
+  max-width: 375px;
+  height: 667px;
+  border: 16px solid #333;
+  border-radius: 36px;
+  background-color: #fff;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(255,255,255,0.1);
+  position: relative;
+  margin: auto;
+}
     .notch {
       width: 210px;
       height: 30px;
