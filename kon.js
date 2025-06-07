@@ -1,30 +1,14 @@
+const pages = document.querySelectorAll(".page");
 let currentPage = 0;
-const pages = document.querySelectorAll('.page');
-const nextButton = document.querySelector('.next-button');
-const prevButton = document.querySelector('.prev-button');
 
-function updatePages() {
-  pages.forEach((page, i) => {
-    if (i === currentPage) {
-      page.classList.add('active');
-    } else {
-      page.classList.remove('active');
-    }
-  });
-}
-
-nextButton.addEventListener('click', () => {
-  if (currentPage < pages.length - 1) {
-    currentPage++;
-    updatePages();
-  }
+document.getElementById("nextBtn").addEventListener("click", () => {
+  pages[currentPage].classList.remove("active");
+  currentPage = (currentPage + 1) % pages.length;
+  pages[currentPage].classList.add("active");
 });
 
-prevButton.addEventListener('click', () => {
-  if (currentPage > 0) {
-    currentPage--;
-    updatePages();
-  }
+document.getElementById("prevBtn").addEventListener("click", () => {
+  pages[currentPage].classList.remove("active");
+  currentPage = (currentPage - 1 + pages.length) % pages.length;
+  pages[currentPage].classList.add("active");
 });
-
-updatePages();
