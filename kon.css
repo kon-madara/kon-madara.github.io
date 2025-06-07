@@ -1,7 +1,7 @@
 /* フォントと背景設定 */
 body {
   margin: 0;
-  font-family: 'Sawarabi Mincho', serif;
+  font-family: 'Noto Serif JP', serif;
   color: #111;
   background: url('https://raw.githubusercontent.com/kon-madara/kon-madara.github.io/main/image/2C40349F-8B81-4306-B035-B480FB98C9AD.png') no-repeat center center fixed;
   background-size: cover;
