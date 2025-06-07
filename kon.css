@@ -1,20 +1,19 @@
-/* 背景画像の固定と全体設定 */
+/* フォントと背景設定 */
 body {
   margin: 0;
   font-family: 'Sawarabi Mincho', serif;
+  color: #111;
   background: url('https://raw.githubusercontent.com/kon-madara/kon-madara.github.io/main/image/2C40349F-8B81-4306-B035-B480FB98C9AD.png') no-repeat center center fixed;
   background-size: cover;
   overflow: hidden;
 }
 
-/* 高さ調整（Safari・Chrome対策） */
 html, body {
   height: 100%;
-  overscroll-behavior: none;
-  touch-action: none;
+  width: 100%;
 }
 
-/* 帳面全体を包むラッパー */
+/* 帳面全体のラップ */
 .book-wrapper {
   position: relative;
   width: 100%;
@@ -22,70 +21,87 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
+  pointer-events: none;
 }
 
-/* ページ本体（テキストを載せる箱） */
+/* 帳面本体 */
 .book {
-  width: 80%;
-  max-width: 340px;
-  height: 90%;
-  padding: 10px;
+  position: relative;
+  width: 320px;
+  height: 480px;
+  writing-mode: vertical-rl;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  writing-mode: vertical-rl;
-  text-align: right;
-  color: #111;
-  font-size: 18px;
-  line-height: 2;
-  background-color: transparent;
+  align-items: center;
+  pointer-events: auto;
 }
 
-/* ページ切替制御 */
+/* 各ページ */
 .page {
-  display: none;
-}
-.page.active {
-  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 320px;
+  height: 480px;
+  padding: 20px 10px;
+  box-sizing: border-box;
+  background: transparent;
+  transition: opacity 0.5s ease-in-out;
+  opacity: 0;
+  z-index: 0;
 }
 
-/* 次ページボタン（位置を右端に） */
+/* 表示中のページ */
+.page.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* テキストの基本設定 */
+.text p {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  line-height: 1.8;
+  text-align: justify;
+  text-shadow: 0 0 1px #000;
+}
+
+/* ページ送りボタン */
 .next-button {
   position: absolute;
-  right: 10px;
   top: 50%;
+  right: -16px;
   transform: translateY(-50%);
   background: rgba(255, 255, 255, 0.2);
-  padding: 8px 10px;
-  border-radius: 8px 0 0 8px;
-  color: #fff;
-  font-size: 14px;
+  border-radius: 6px 0 0 6px;
+  padding: 10px;
   cursor: pointer;
-  user-select: none;
-  transition: background 0.3s ease;
-}
-.next-button:hover {
-  background: rgba(255, 255, 255, 0.4);
+  z-index: 1000;
+  pointer-events: auto;
 }
 
-/* 狐火の点滅アニメーション */
+/* 狐火アイコン */
 .kitsunebi {
   position: absolute;
-  left: 10px;
   bottom: 10px;
-  width: 20px;
-  height: 20px;
-  background: radial-gradient(circle, #ff6600, #ff3300, transparent);
+  left: 10px;
+  width: 16px;
+  height: 16px;
+  background: radial-gradient(ellipse at center, orange 0%, orangered 100%);
   border-radius: 50%;
-  animation: flicker 1.5s infinite;
+  animation: flicker 1s infinite;
+  pointer-events: none;
 }
+
+/* 狐火の揺らめきアニメーション */
 @keyframes flicker {
   0%, 100% {
     opacity: 1;
     transform: scale(1);
   }
   50% {
-    opacity: 0.5;
-    transform: scale(1.3);
+    opacity: 0.6;
+    transform: scale(1.2);
   }
 }
