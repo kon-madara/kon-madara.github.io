@@ -1,56 +1,32 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>紺の帳面</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="kon.css" />
+  <link rel="stylesheet" href="kon.css"> <!-- CSSのリンク -->
 </head>
 <body>
-  <div class="book-wrapper">
-    <div class="book">
-      <div class="page active">
-        <div class="column">
-          世に知られぬ依頼は静かに帳面へと<br>
-          滴るように書き留められる。<br>
-          誰かが紺のもとを訪れたということは、<br>
-          もうすでに人ならざる縁が結ばれているということ。
-        </div>
-        <div class="column">
-          それを解くのは、容易なことではない。<br>
-          けれど紺は言うのだ。<br>
-          「うちの帳面に名が載った時点で、<br>
-          あんたの運命、もう変わり始めてるんやで」<br>
-        </div>
-      </div>
-      <div class="page">
-        <div class="column">
-          二頁目の物語が始まる。<br>
-          それは雨夜に訪れた一人の影。<br>
-          名もなき願いを抱えたまま、<br>
-          手にしたのは、焦げ跡の残る札一枚。
-        </div>
-        <div class="column">
-          紺が札を手に取った瞬間、<br>
-          背後の狐火が揺れた。<br>
-          それは始まりの合図。<br>
-          地獄手帖、またひとつ――。
-        </div>
-      </div>
-    </div>
-    <div class="next-button" onclick="nextPage()">▶︎</div>
-    <div class="kitsunebi"></div>
+  
+  <!-- ✨ここに入れる！ -->
+  <div class="book">
+    <div class="page">ページ1の内容</div>
+    <div class="page">ページ2の内容</div>
+    <!-- 必要に応じてページを追加 -->
   </div>
+  <button class="next-button">▶︎</button>
 
+  <!-- 📜スクリプトは最後に -->
   <script>
-    function nextPage() {
-      const pages = document.querySelectorAll('.page');
-      let activeIndex = Array.from(pages).findIndex(p => p.classList.contains('active'));
-      pages[activeIndex].classList.remove('active');
-      let nextIndex = (activeIndex + 1) % pages.length;
-      pages[nextIndex].classList.add('active');
-    }
+    const pages = document.querySelectorAll('.page');
+    let currentPage = 0;
+
+    document.querySelector('.next-button').addEventListener('click', () => {
+      if (currentPage < pages.length) {
+        pages[currentPage].classList.add('flipped');
+        currentPage++;
+      }
+    });
   </script>
+
 </body>
 </html>
