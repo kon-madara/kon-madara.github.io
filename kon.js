@@ -1,25 +1,18 @@
-const pages = document.querySelectorAll('.page');
+const pages = document.querySelectorAll(".page");
 let currentPage = 0;
 
-function showPage(index) {
-  pages.forEach((page, i) => {
-    page.classList.remove('active');
-    if (i === index) {
-      page.classList.add('active');
-    }
-  });
-}
-
-document.getElementById('nextBtn').addEventListener('click', () => {
+document.getElementById("nextButton").addEventListener("click", () => {
   if (currentPage < pages.length - 1) {
+    pages[currentPage].classList.remove("active");
     currentPage++;
-    showPage(currentPage);
+    pages[currentPage].classList.add("active");
   }
 });
 
-document.getElementById('prevBtn').addEventListener('click', () => {
+document.getElementById("prevButton").addEventListener("click", () => {
   if (currentPage > 0) {
+    pages[currentPage].classList.remove("active");
     currentPage--;
-    showPage(currentPage);
+    pages[currentPage].classList.add("active");
   }
 });
