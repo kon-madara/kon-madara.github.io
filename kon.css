@@ -28,15 +28,18 @@ body {
 .book {
   width: 320px;
   height: 90%;
-  background: rgba(255, 255, 255, 0.7); /* 透明度を上げて背景を透かす */
+  background: url('https://raw.githubusercontent.com/kon-madara/kon-madara.github.io/main/image/2C40349F-8B81-4306-B035-B480FB98C9AD.png') no-repeat center center;
+  background-size: cover;
   box-shadow: 0 0 20px #00000099;
-  padding: 20px;
+  padding: 40px 30px;
   writing-mode: vertical-rl;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   border-radius: 10px;
+  color: #000; /* 本の上に載せる文字色 */
+  background-color: transparent; /* 念のため */
 }
 
 .page {
