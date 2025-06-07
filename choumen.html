@@ -3,34 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>地獄手帖 – iPhone風</title>
+  <title>地獄手帖 - iPhone風</title>
   <style>
     body {
       background-color: #000;
       margin: 0;
       padding: 0;
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
       overflow: hidden;
       font-family: 'Helvetica Neue', sans-serif;
     }
 
     .iphone-frame {
-      width: 430px; /* iPhone 16 Pro 幅 */
-      height: 932px; /* iPhone 16 Pro 高さ */
+      width: 100%;
+      max-width: 375px;
+      height: 667px;
       background-color: #fff;
-      border: 16px solid #4c6cb3; /* 紺色ベゼル */
+      border: 16px solid #4c6cb3;
       border-radius: 36px;
-      box-shadow:
-        0 0 10px #4c6cb3,
-        0 0 20px #4c6cb3,
-        0 0 40px #4c6cb3; /* 発光効果 */
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      box-shadow: 0 0 20px #4c6cb3, 0 0 40px #4c6cb3;
+      position: relative;
       overflow: hidden;
     }
 
@@ -47,11 +42,11 @@
 
     .screen {
       padding: 1rem;
-      overflow-y: scroll;
+      overflow-y: auto;
       height: 100%;
       box-sizing: border-box;
-      line-height: 1.8;
       font-size: 1rem;
+      line-height: 1.8;
       color: #223344;
     }
   </style>
