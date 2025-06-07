@@ -1,109 +1,76 @@
-/* フォントと背景設定 */
 body {
   margin: 0;
-  font-family: 'Noto Serif JP', serif;
-  color: #111;
-  background: url('https://raw.githubusercontent.com/kon-madara/kon-madara.github.io/main/image/2C40349F-8B81-4306-B035-B480FB98C9AD.png') no-repeat center center fixed;
-  background-size: cover;
+  padding: 0;
+  background: #000;
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
   overflow: hidden;
 }
 
-html, body {
-  height: 100%;
-  width: 100%;
-}
-
-/* 帳面全体のラップ */
-.book-wrapper {
+.book-container {
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("https://raw.githubusercontent.com/kon-madara/kon-madara.github.io/main/image/2C40349F-8B81-4306-B035-B480FB98C9AD.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  pointer-events: none;
+  touch-action: manipulation;
 }
 
-/* 帳面本体 */
-.book {
-  position: relative;
-  width: 320px;
-  height: 480px;
-  writing-mode: vertical-rl;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  pointer-events: auto;
-}
-
-/* 各ページ */
 .page {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 320px;
-  height: 480px;
-  padding: 20px 10px;
-  box-sizing: border-box;
-  background: transparent;
-  transition: opacity 0.5s ease-in-out;
-  opacity: 0;
-  z-index: 0;
-}
-
-/* 表示中のページ */
-.page.active {
-  opacity: 1;
-  z-index: 1;
-}
-
-/* テキストの基本設定 */
-.text p {
-  margin: 0 10px;
-  font-size: 18px;
-  line-height: 2.2;
-  text-align: justify;
-  text-orientation: upright; /* 句読点や括弧を正しく表示する */
-  writing-mode: vertical-rl; /* 縦書き指定 */
-  font-family: 'Sawarabi Mincho', serif;
-  text-shadow: 0 0 1px #000; /* 影を薄くつけることで背景上でも読みやすく */
-}
-/* ページ送りボタン */
-.next-button {
-  position: absolute;
-  top: 50%;
-  right: -16px;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 6px 0 0 6px;
-  padding: 10px;
-  cursor: pointer;
-  z-index: 1000;
-  pointer-events: auto;
-}
-
-/* 狐火アイコン */
-.kitsunebi {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  width: 16px;
-  height: 16px;
-  background: radial-gradient(ellipse at center, orange 0%, orangered 100%);
-  border-radius: 50%;
-  animation: flicker 1s infinite;
+  width: 35%;
+  height: 70%;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  font-size: 1.2rem;
+  color: #222;
+  padding: 1em;
+  background-color: rgba(255, 255, 255, 0); /* 背景は透過 */
+  line-height: 2.2em;
+  font-family: "Sawarabi Mincho", "Yu Mincho", serif;
   pointer-events: none;
 }
 
-/* 狐火の揺らめきアニメーション */
+.page.left {
+  left: 24%;
+  top: 14%;
+}
+
+.page.right {
+  right: 24%;
+  top: 14%;
+}
+
+.page-toggle {
+  position: absolute;
+  bottom: 10%;
+  right: 5%;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  z-index: 10;
+  user-select: none;
+}
+
+.foxfire {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle, #00ffff, #004466, transparent);
+  border-radius: 50%;
+  animation: flicker 2s infinite;
+  opacity: 0.8;
+}
+
 @keyframes flicker {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.6;
-    transform: scale(1.2);
-  }
+  0% { transform: translateX(-50%) scale(1); opacity: 0.7; }
+  50% { transform: translateX(-50%) scale(1.2); opacity: 1; }
+  100% { transform: translateX(-50%) scale(1); opacity: 0.7; }
 }
