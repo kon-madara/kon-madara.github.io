@@ -60,13 +60,15 @@ html, body {
 
 /* テキストの基本設定 */
 .text p {
-  margin: 0 0 10px 0;
-  font-size: 16px;
-  line-height: 1.8;
+  margin: 0 10px;
+  font-size: 18px;
+  line-height: 2.2;
   text-align: justify;
-  text-shadow: 0 0 1px #000;
+  text-orientation: upright; /* 句読点や括弧を正しく表示する */
+  writing-mode: vertical-rl; /* 縦書き指定 */
+  font-family: 'Sawarabi Mincho', serif;
+  text-shadow: 0 0 1px #000; /* 影を薄くつけることで背景上でも読みやすく */
 }
-
 /* ページ送りボタン */
 .next-button {
   position: absolute;
