@@ -1,73 +1,55 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>紺の帳面</title>
-  <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap" rel="stylesheet">
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      overflow: hidden;
-      font-family: 'Sawarabi Mincho', serif;
-      background-color: #000;
-    }
-
-    .book-wrapper {
-      width: 100vw;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #000;
-    }
-
-    .book {
-      position: relative;
-      width: 90vw;
-      max-width: 400px;
-      height: 90vh;
-      background-image: url('https://raw.githubusercontent.com/kon-madara/kon-madara.github.io/main/image/2C40349F-8B81-4306-B035-B480FB98C9AD.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      box-shadow: 0 0 20px #000000cc;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      writing-mode: vertical-rl;
-      text-align: justify;
-      padding: 60px 30px;
-      color: #000;
-    }
-
-    .text {
-      background-color: rgba(255, 255, 255, 0); /* 完全透明（背景に載せるだけ） */
-      line-height: 2em;
-      font-size: 16px;
-    }
-
-    @media screen and (max-width: 600px) {
-      .book {
-        height: 95vh;
-        padding: 40px 20px;
-      }
-      .text {
-        font-size: 14px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="kon.css" />
 </head>
 <body>
   <div class="book-wrapper">
     <div class="book">
-      <div class="text">
-        <p>これは斑ちゃんのために紺が記す帳面。</p>
-        <p>狐火の灯る夜、依頼は静かに届く──。</p>
+      <div class="page active">
+        <div class="column">
+          世に知られぬ依頼は静かに帳面へと<br>
+          滴るように書き留められる。<br>
+          誰かが紺のもとを訪れたということは、<br>
+          もうすでに人ならざる縁が結ばれているということ。
+        </div>
+        <div class="column">
+          それを解くのは、容易なことではない。<br>
+          けれど紺は言うのだ。<br>
+          「うちの帳面に名が載った時点で、<br>
+          あんたの運命、もう変わり始めてるんやで」<br>
+        </div>
+      </div>
+      <div class="page">
+        <div class="column">
+          二頁目の物語が始まる。<br>
+          それは雨夜に訪れた一人の影。<br>
+          名もなき願いを抱えたまま、<br>
+          手にしたのは、焦げ跡の残る札一枚。
+        </div>
+        <div class="column">
+          紺が札を手に取った瞬間、<br>
+          背後の狐火が揺れた。<br>
+          それは始まりの合図。<br>
+          地獄手帖、またひとつ――。
+        </div>
       </div>
     </div>
+    <div class="next-button" onclick="nextPage()">▶︎</div>
+    <div class="kitsunebi"></div>
   </div>
+
+  <script>
+    function nextPage() {
+      const pages = document.querySelectorAll('.page');
+      let activeIndex = Array.from(pages).findIndex(p => p.classList.contains('active'));
+      pages[activeIndex].classList.remove('active');
+      let nextIndex = (activeIndex + 1) % pages.length;
+      pages[nextIndex].classList.add('active');
+    }
+  </script>
 </body>
 </html>
