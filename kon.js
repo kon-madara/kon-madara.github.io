@@ -4,7 +4,9 @@ let currentPage = 0;
 function showPage(index) {
   pages.forEach((page, i) => {
     page.classList.remove('active');
-    if (i === index) page.classList.add('active');
+    if (i === index) {
+      page.classList.add('active');
+    }
   });
 }
 
@@ -21,5 +23,3 @@ document.getElementById('prevBtn').addEventListener('click', () => {
     showPage(currentPage);
   }
 });
-
-showPage(currentPage);
