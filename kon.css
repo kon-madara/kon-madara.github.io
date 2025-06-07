@@ -81,3 +81,6 @@ body {
     transform: translateX(-50%) scale(1.2);
   }
 }
+html,body {
+ height: 100%
+}
