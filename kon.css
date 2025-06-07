@@ -1,3 +1,4 @@
+/* 背景設定（帳面画像） */
 body {
   background: url('https://raw.githubusercontent.com/kon-madara/kon-madara.github.io/main/image/2C40349F-8B81-4306-B035-B480FB98C9AD.png') no-repeat center center fixed;
   background-size: cover;
@@ -6,71 +7,91 @@ body {
   overflow-x: hidden;
 }
 
+/* HTML全体の高さ */
+html, body {
+  height: 100%;
+}
+
+/* 帳面を画面に配置 */
 .book-wrapper {
   position: relative;
   width: 100%;
   height: 100vh;
   display: flex;
-  justify-content: flex-start; /* 帳面を左配置なら flex-start, 右配置なら flex-end */
+  justify-content: flex-start; /* 帳面を左に */
   align-items: center;
   padding: 10px;
 }
 
+/* 帳面本体 */
 .book {
   width: 320px;
   height: 90%;
-  background: url('https://i.imgur.com/B5zME6c.jpg') no-repeat center center;
-  background-size: cover;
+  background: rgba(255, 255, 255, 0.85);
   box-shadow: 0 0 20px #00000099;
   padding: 20px;
   writing-mode: vertical-rl;
-  text-align: justify;
-  color: #111;
-  border-radius: 8px;
   overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid #333;
   position: relative;
+  backdrop-filter: blur(2px);
 }
 
+/* 各ページ */
 .page {
   display: none;
+  flex-direction: column;
+  justify-content: space-between;
   height: 100%;
 }
 
 .page.active {
-  display: block;
+  display: flex;
 }
 
-.text {
-  font-size: 1.2rem;
-  line-height: 2.2rem;
-  padding: 8px;
+/* テキストスタイル（縦書き） */
+.text p {
+  margin: 0;
+  line-height: 2.0;
+  font-size: 16px;
+  padding: 5px;
+  text-align: justify;
 }
 
+/* ページめくりボタン */
 .next-button {
   position: absolute;
+  right: -25px;
   top: 50%;
-  right: -30px;
-  background-color: #fff;
-  border: 2px solid #aaa;
-  padding: 8px 6px;
-  font-size: 12px;
-  border-radius: 4px;
-  cursor: pointer;
   transform: translateY(-50%);
+  background: #fff;
+  color: #000;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
 }
 
+/* 狐火アニメ */
 .kitsunebi {
   position: absolute;
   bottom: 10px;
-  left: 50%;
-  width: 16px;
-  height: 16px;
-  background: radial-gradient(circle, rgba(255, 100, 100, 0.9), transparent);
-  border-radius: 50%;
-  animation: flicker 1.2s infinite ease-in-out;
-  transform: translateX(-50%);
+  left: 10px;
+  width: 20px;
+  height: 30px;
+  background: radial-gradient(circle, #ff9933 0%, #ff3300 60%, transparent 100%);
+  border-radius: 50% 50% 40% 60%;
+  opacity: 0.8;
+  animation: flicker 1.2s infinite;
+  transform: rotate(-20deg);
 }
 
+/* 狐火の揺れ */
 @keyframes flicker {
   0%, 100% {
     opacity: 1;
@@ -80,7 +101,4 @@ body {
     opacity: 0.5;
     transform: translateX(-50%) scale(1.2);
   }
-}
-html,body {
- height: 100%
 }
