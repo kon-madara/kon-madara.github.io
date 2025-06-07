@@ -3,36 +3,47 @@ body {
   padding: 0;
   background-color: #111;
   overflow: hidden;
-  font-family: "Yu Mincho", serif;
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
 }
 
 .notebook-container {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 80vw;
+  width: 70vw;
   height: 90vh;
   transform: translate(-50%, -50%);
-  background: url("image/notebook-bg.jpg") no-repeat center center;
+  background: url("https://github.com/kon-madara/kon-madara.github.io/blob/main/image/2C40349F-8B81-4306-B035-B480FB98C9AD.png?raw=true") no-repeat center center;
   background-size: contain;
   display: flex;
   justify-content: center;
   align-items: center;
+  pointer-events: none;
 }
 
 .page {
   position: absolute;
-  width: 80%;
-  height: 80%;
+  width: 40%;
+  height: 75%;
   display: flex;
   justify-content: center;
   align-items: center;
   writing-mode: vertical-rl;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   color: #222;
   text-align: justify;
-  padding: 2rem;
+  line-height: 2;
+  padding: 1rem;
   box-sizing: border-box;
+  pointer-events: auto;
+}
+
+#page1 {
+  right: 52%;
+}
+
+#page2 {
+  left: 52%;
 }
 
 .hidden {
@@ -41,11 +52,12 @@ body {
 
 .buttons {
   position: absolute;
-  bottom: 2vh;
+  bottom: 3vh;
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 0 5vw;
+  padding: 0 8vw;
+  z-index: 10;
 }
 
 button {
@@ -64,14 +76,16 @@ button:hover {
 
 .foxfire {
   position: absolute;
-  bottom: 10%;
+  bottom: 12%;
   left: 50%;
   width: 40px;
   height: 60px;
   transform: translateX(-50%);
-  background: radial-gradient(ellipse at center, rgba(255, 100, 100, 0.7) 0%, transparent 70%);
-  animation: flicker 1.5s infinite ease-in-out alternate;
+  background: radial-gradient(ellipse at center, rgba(255, 120, 100, 0.6) 0%, transparent 70%);
+  animation: flicker 1.8s infinite ease-in-out alternate;
   border-radius: 50% 50% 40% 40% / 60% 60% 30% 30%;
+  box-shadow: 0 0 15px rgba(255, 120, 100, 0.8);
+  z-index: 5;
 }
 
 @keyframes flicker {
@@ -80,7 +94,7 @@ button:hover {
     opacity: 0.8;
   }
   100% {
-    transform: translateX(-50%) scale(1.2) rotate(3deg);
+    transform: translateX(-50%) scale(1.2) rotate(2deg);
     opacity: 0.4;
   }
 }
