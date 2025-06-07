@@ -1,38 +1,32 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>地獄手帖 - iPhone風</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <style>
-    body {
+    html, body {
       margin: 0;
       padding: 0;
+      height: 100%;
       background-color: #000;
       font-family: 'Helvetica Neue', sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
     }
 
     .iphone-frame {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 360px;
-      height: 780px;
+      position: relative;
+      width: 375px;
+      height: 812px;
+      max-width: 100vw;
+      max-height: 100vh;
       background-color: #fff;
       border: 16px solid #4c6cb3;
       border-radius: 36px;
-      box-shadow:
-        0 0 10px #4c6cb3,
-        0 0 20px #4c6cb3,
-        0 0 30px #4c6cb3;
+      box-shadow: 0 0 20px #4c6cb3, 0 0 40px #4c6cb3, 0 0 60px #4c6cb3;
       overflow: hidden;
-      z-index: 10;
     }
 
     .notch {
@@ -44,17 +38,27 @@
       height: 30px;
       background: #333;
       border-radius: 0 0 15px 15px;
-      z-index: 11;
+      z-index: 10;
     }
 
     .screen {
       padding: 1rem;
-      overflow-y: scroll;
       height: 100%;
       box-sizing: border-box;
+      overflow-y: auto;
+      color: #223344;
       font-size: 1rem;
       line-height: 1.8;
-      color: #223344;
+    }
+
+    /* Safari対策 */
+    @supports (-webkit-touch-callout: none) {
+      html, body {
+        height: -webkit-fill-available;
+      }
+      .iphone-frame {
+        max-height: -webkit-fill-available;
+      }
     }
   </style>
 </head>
