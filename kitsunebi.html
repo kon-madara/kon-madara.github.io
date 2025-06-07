@@ -7,27 +7,30 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <div class="page active">
+  <div class="notebook-container">
+    <div class="page" id="page1">
       <div class="text">
-        <p>世に知られぬ依頼は静かに帳面へと滴るように書き留められる。</p>
-        <p>誰かが紺のもとを訪れたということは、もうすでに人ならざる縁が結ばれているということ。</p>
-        <p>それを解くのは、容易なことではない。けれど紺は言うのだ。</p>
-        <p>「うちの帳面に名が載った時点で、あんたの運命、もう変わり始めてるんやで」</p>
+        これは紺の帳面に記された依頼のひとつ。<br />
+        闇夜に揺れる狐火と共に、<br />
+        ひっそりと書き記された物語。
       </div>
     </div>
-    <div class="page">
+    <div class="page hidden" id="page2">
       <div class="text">
-        <p>ページ２の内容</p>
+        依頼は続く。<br />
+        魂を鎮め、<br />
+        真実を暴くのが、<br />
+        夜雨紺の役目──。
       </div>
     </div>
-
-    <div class="nav-buttons">
-      <button id="prevBtn">◀</button>
-      <button id="nextBtn">▶</button>
-    </div>
-    <div class="foxfire"></div>
   </div>
+
+  <div class="buttons">
+    <button id="prevBtn">← 戻る</button>
+    <button id="nextBtn">進む →</button>
+  </div>
+
+  <div class="foxfire"></div>
   <script src="script.js"></script>
 </body>
 </html>
