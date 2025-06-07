@@ -1,69 +1,34 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>紺の帳面</title>
-  <link rel="stylesheet" href="kon.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="kon.css">
 </head>
 <body>
   <div class="book-wrapper">
     <div class="book">
-      <!-- ページ1 -->
       <div class="page active">
         <div class="text">
-          <p>
-            世に知られぬ依頼は静かに帳面へと<br>
-            滴るように書き留められる。<br>
-            誰かが紺のもとを訪れたということは、<br>
-            もうすでに人ならざる縁が結ばれているということ。<br>
-            それを解くのは、容易なことではない。<br>
-            けれど紺は言うのだ。<br>
-            「うちの帳面に名が載った時点で、<br>
-            あんたの運命、もう変わり始めてるんやで」
-          </p>
+          <p>これは斑ちゃんのために紺が記す帳面。</p>
+          <p>狐火の灯る夜、依頼は静かに届く――。</p>
         </div>
       </div>
-
-      <!-- ページ2 -->
       <div class="page">
         <div class="text">
-          <p>
-            これは斑ちゃんのために紺が記す帳面。<br>
-            狐火の灯る夜、依頼は静かに届く――。
-          </p>
+          <p>世に知られぬ依頼は静かに帳面へと</p>
+          <p>誰かが紺のもとを訪れたということは、</p>
+          <p>もうすでに人ならざる縁が結ばれているということ。</p>
+          <p>それを解くのは、容易なことではない。</p>
+          <p>けれど紺は言うのだ。</p>
+          <p>「うちの帳面に名が載った時点で、</p>
+          <p>あんたの運命、もう変わり始めてるんやで」</p>
         </div>
       </div>
     </div>
-
-    <!-- 次ページボタン -->
     <div class="next-button">▶</div>
-
-    <!-- 狐火の装飾 -->
-    <div class="kitsunebi"></div>
   </div>
-
-  <!-- ページめくりスクリプト -->
-  <script>
-    const pages = document.querySelectorAll('.page');
-    let currentPage = 0;
-
-    function showPage(index) {
-      pages.forEach((page, i) => {
-        page.classList.toggle('active', i === index);
-      });
-    }
-
-    function nextPage() {
-      if (currentPage < pages.length - 1) {
-        currentPage++;
-        showPage(currentPage);
-      }
-    }
-
-    document.querySelector('.next-button').addEventListener('click', nextPage);
-    showPage(currentPage);
-  </script>
+  <script src="kon.js"></script>
 </body>
 </html>
