@@ -1,32 +1,69 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>紺の帳面</title>
-  <link rel="stylesheet" href="kon.css"> <!-- CSSのリンク -->
+  <link rel="stylesheet" href="kon.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap" rel="stylesheet">
 </head>
 <body>
-  
-  <!-- ✨ここに入れる！ -->
-  <div class="book">
-    <div class="page">ページ1の内容</div>
-    <div class="page">ページ2の内容</div>
-    <!-- 必要に応じてページを追加 -->
-  </div>
-  <button class="next-button">▶︎</button>
+  <div class="book-wrapper">
+    <div class="book">
+      <!-- ページ1 -->
+      <div class="page active">
+        <div class="text">
+          <p>
+            世に知られぬ依頼は静かに帳面へと<br>
+            滴るように書き留められる。<br>
+            誰かが紺のもとを訪れたということは、<br>
+            もうすでに人ならざる縁が結ばれているということ。<br>
+            それを解くのは、容易なことではない。<br>
+            けれど紺は言うのだ。<br>
+            「うちの帳面に名が載った時点で、<br>
+            あんたの運命、もう変わり始めてるんやで」
+          </p>
+        </div>
+      </div>
 
-  <!-- 📜スクリプトは最後に -->
+      <!-- ページ2 -->
+      <div class="page">
+        <div class="text">
+          <p>
+            これは斑ちゃんのために紺が記す帳面。<br>
+            狐火の灯る夜、依頼は静かに届く――。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 次ページボタン -->
+    <div class="next-button">▶</div>
+
+    <!-- 狐火の装飾 -->
+    <div class="kitsunebi"></div>
+  </div>
+
+  <!-- ページめくりスクリプト -->
   <script>
     const pages = document.querySelectorAll('.page');
     let currentPage = 0;
 
-    document.querySelector('.next-button').addEventListener('click', () => {
-      if (currentPage < pages.length) {
-        pages[currentPage].classList.add('flipped');
-        currentPage++;
-      }
-    });
-  </script>
+    function showPage(index) {
+      pages.forEach((page, i) => {
+        page.classList.toggle('active', i === index);
+      });
+    }
 
+    function nextPage() {
+      if (currentPage < pages.length - 1) {
+        currentPage++;
+        showPage(currentPage);
+      }
+    }
+
+    document.querySelector('.next-button').addEventListener('click', nextPage);
+    showPage(currentPage);
+  </script>
 </body>
 </html>
