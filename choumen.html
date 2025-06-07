@@ -2,59 +2,62 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <title>KON-MADARA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>地獄手帖 - iPhone風</title>
   <style>
-    body {
+    html, body {
       margin: 0;
       padding: 0;
+      height: 100%;
       background-color: #000;
-      font-family: 'Helvetica Neue', sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
       overflow: hidden;
+      font-family: 'Helvetica Neue', sans-serif;
     }
 
     .iphone-frame {
-      position: relative;
       width: 360px;
-      height: 740px;
+      height: 780px;
       background-color: #fff;
-      border: 16px solid #4c6cb3; /* 紺色ベゼル */
-      border-radius: 40px;
-      box-shadow: 0 0 40px #4c6cb3;
+      border: 16px solid #4c6cb3;
+      border-radius: 36px;
+      box-shadow: 0 0 30px #4c6cb3;
+      position: relative;
       overflow: hidden;
+      transform: scale(0.87); /* Safariの手動縮小サイズに合わせた倍率 */
     }
 
     .notch {
-      width: 200px;
-      height: 35px;
-      background-color: #333;
-      border-radius: 0 0 20px 20px;
       position: absolute;
       top: 0;
       left: 50%;
       transform: translateX(-50%);
-      z-index: 2;
+      width: 210px;
+      height: 30px;
+      background: #333;
+      border-radius: 0 0 15px 15px;
+      z-index: 10;
     }
 
     .screen {
-      padding: 1.5rem 1rem;
-      height: 100%;
+      position: absolute;
+      top: 30px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 1.2rem;
+      box-sizing: border-box;
       overflow-y: auto;
       color: #223344;
       font-size: 1rem;
       line-height: 1.8;
-      box-sizing: border-box;
-      z-index: 1;
-      position: relative;
     }
 
-    @media (max-width: 480px) {
+    @media (max-height: 700px), (max-width: 400px) {
       .iphone-frame {
-        transform: scale(0.95);
+        transform: scale(0.75);
       }
     }
   </style>
