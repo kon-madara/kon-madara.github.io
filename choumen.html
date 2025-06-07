@@ -2,69 +2,67 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>地獄手帖 - iPhone風</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-  body {
-    background-color: #000;
-    font-family: 'Helvetica Neue', sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
-  }
-
-  .iphone-frame {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: scale(1.1) translate(-50%, -50%);
-    width: 100%;
-    max-width: 550px;
-    height: 950px;
-    border: 16px solid #4c6cb3;
-    border-radius: 36px;
-    background-color: #fff;
-    overflow: hidden;
-    box-shadow:
-      0 0 10px #4c6cb3,
-      0 0 20px #4c6cb3,
-      0 0 30px #4c6cb3;
-  }
-
-  .notch {
-    width: 210px;
-    height: 30px;
-    background: #333;
-    border-radius: 0 0 15px 15px;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .screen {
-    padding: 1rem;
-    overflow-y: auto;
-    height: 100%;
-    box-sizing: border-box;
-    line-height: 1.8;
-    font-size: 1rem;
-    color: #111; /* ←ここ明るくした！ */
-  }
-
-  /* scale(0.9) 削除済み */
-  @media (max-width: 600px) {
-    .iphone-frame {
-      /* スマホではそのままのサイズに */
-      max-width: 100%;
-      height: auto;
+    body {
+      background-color: #000;
+      font-family: 'Helvetica Neue', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
     }
-  }
-</style>
+
+    .iphone-frame {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      max-width: 420px;
+      height: 820px;
+      background-color: #fff;
+      border: 16px solid #4c6cb3; /* 紺色のベゼル */
+      border-radius: 36px;
+      box-shadow:
+        0 0 10px #4c6cb3,
+        0 0 30px #4c6cb3,
+        0 0 60px #4c6cb3; /* 発光 */
+      overflow: hidden;
+    }
+
+    .notch {
+      width: 210px;
+      height: 30px;
+      background: #333;
+      border-radius: 0 0 15px 15px;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .screen {
+      padding: 1.5rem;
+      overflow-y: auto;
+      height: 100%;
+      box-sizing: border-box;
+      line-height: 1.8;
+      font-size: 1rem;
+      color: #223344;
+    }
+
+    /* スマホ用のレスポンシブ調整（必要なら） */
+    @media (max-width: 600px) {
+      .iphone-frame {
+        transform: scale(0.95) translate(-50%, -50%);
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="iphone-frame">
