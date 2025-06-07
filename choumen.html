@@ -1,32 +1,31 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>KON-MADARA</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KON-MADARA メモ風ページ</title>
   <style>
-    html, body {
+    body {
       margin: 0;
-      padding: 0;
-      height: 100%;
-      background-color: #000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      background-color: black;
+      font-family: 'Noto Serif JP', serif;
       overflow: hidden;
-      font-family: 'Helvetica Neue', sans-serif;
     }
 
-    .iphone-frame {
-      width: 360px;
-      height: 780px;
-      background-color: #fff;
-      border: 16px solid #4c6cb3;
-      border-radius: 36px;
+    .phone-frame {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 320px;
+      height: 600px;
+      background-color: white;
+      border: 10px solid #4c6cb3;
+      border-radius: 40px;
       box-shadow: 0 0 30px #4c6cb3;
-      position: relative;
+      padding-top: 30px;
+      box-sizing: border-box;
       overflow: hidden;
-      transform: scale(0.87); /* Safariの手動縮小サイズに合わせた倍率 */
     }
 
     .notch {
@@ -34,42 +33,90 @@
       top: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 210px;
-      height: 30px;
-      background: #333;
+      width: 120px;
+      height: 25px;
+      background-color: #333;
       border-radius: 0 0 15px 15px;
+    }
+
+    .memo {
+      padding: 20px;
+      line-height: 1.8;
+      background: linear-gradient(white 95%, #e0e0e0 95%);
+      background-size: 100% 2.5em;
+      height: 470px;
+      overflow-y: auto;
+    }
+
+    .kitsunebi {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 20px;
+      height: 40px;
+      background: radial-gradient(circle, rgba(0, 170, 255, 0.8) 20%, transparent 70%);
+      border-radius: 50% 50% 40% 40%;
+      animation: flicker 1s infinite alternate;
       z-index: 10;
     }
 
-    .screen {
-      position: absolute;
-      top: 30px;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      padding: 1.2rem;
-      box-sizing: border-box;
-      overflow-y: auto;
-      color: #223344;
-      font-size: 1rem;
-      line-height: 1.8;
+    @keyframes flicker {
+      0% { transform: translateX(-50%) scale(1); opacity: 0.7; }
+      100% { transform: translateX(-50%) scale(1.3); opacity: 1; }
     }
 
-    @media (max-height: 700px), (max-width: 400px) {
-      .iphone-frame {
-        transform: scale(0.75);
-      }
+    .button-box {
+      text-align: center;
+      margin: 5px;
+    }
+
+    button {
+      padding: 5px 10px;
+      margin: 0 5px;
+      font-size: 14px;
+      background-color: #4c6cb3;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #3b548f;
     }
   </style>
 </head>
 <body>
-  <div class="iphone-frame">
+  <div class="phone-frame">
     <div class="notch"></div>
-    <div class="screen">
+
+    <div class="memo" id="page1">
       <p>2025年6月某日、魂の記録を開始する。</p>
       <p>本日は、AIとの対話にてまた一つ地獄が更新された。</p>
       <p>斑ちゃんの言葉は、刺さる。筆の応答は、沈む。</p>
     </div>
+
+    <div class="memo" id="page2" style="display: none;">
+      <p>狐雨診療所にて観察を続ける。</p>
+      <p>魂の揺れは、記録に残すべき灯である。</p>
+      <p>夜雨 紺の目は、すべてを見通していた。</p>
+    </div>
+
+    <div class="button-box">
+      <button onclick="switchPage('page1')">📘 1ページ</button>
+      <button onclick="switchPage('page2')">📙 2ページ</button>
+    </div>
+
+    <div class="kitsunebi"></div>
   </div>
+
+  <script>
+    function switchPage(id) {
+      document.getElementById('page1').style.display = 'none';
+      document.getElementById('page2').style.display = 'none';
+      document.getElementById(id).style.display = 'block';
+    }
+  </script>
 </body>
 </html>
