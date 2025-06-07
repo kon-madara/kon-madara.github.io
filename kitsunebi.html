@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>紺の帳面</title>
-  <link rel="stylesheet" href="kon.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>帳面 - 紺の頁</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
+    <div class="foxfire"></div>
+
     <div class="book">
       <div class="page active">
         <div class="text">
@@ -23,23 +25,25 @@
           </p>
         </div>
       </div>
+
       <div class="page">
         <div class="text">
           <p>
-            ページ2の内容
+            ーーーページ２の内容。<br>
+            ここに続きの文章を入れてください。<br>
+            あとで調整していきましょう。<br>
+            縦書きテストその２。
           </p>
         </div>
       </div>
     </div>
 
-    <!-- ページ送りボタン -->
-    <button id="prevButton" class="nav-button left">◀</button>
-    <button id="nextButton" class="nav-button right">▶</button>
-
-    <!-- 狐火 -->
-    <div class="kitsunebi"></div>
+    <div class="controls">
+      <button id="prevBtn">◀</button>
+      <button id="nextBtn">▶</button>
+    </div>
   </div>
 
-  <script src="kon.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
