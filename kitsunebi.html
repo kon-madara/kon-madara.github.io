@@ -1,43 +1,73 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <link rel="stylesheet" href="kon.css
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>紺の帳面</title>
   <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="kon.css">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Sawarabi Mincho', serif;
+      background-color: #000;
+    }
+
+    .book-wrapper {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #000;
+    }
+
+    .book {
+      position: relative;
+      width: 90vw;
+      max-width: 400px;
+      height: 90vh;
+      background-image: url('https://raw.githubusercontent.com/kon-madara/kon-madara.github.io/main/image/2C40349F-8B81-4306-B035-B480FB98C9AD.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      box-shadow: 0 0 20px #000000cc;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      writing-mode: vertical-rl;
+      text-align: justify;
+      padding: 60px 30px;
+      color: #000;
+    }
+
+    .text {
+      background-color: rgba(255, 255, 255, 0); /* 完全透明（背景に載せるだけ） */
+      line-height: 2em;
+      font-size: 16px;
+    }
+
+    @media screen and (max-width: 600px) {
+      .book {
+        height: 95vh;
+        padding: 40px 20px;
+      }
+      .text {
+        font-size: 14px;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="book-wrapper">
     <div class="book">
-      <div class="page active" id="page1">
-        <div class="text">
-          <p>これは斑ちゃんのために紺が記す帳面。</p>
-          <p>狐火の灯る夜、依頼は静かに届く──。</p>
-        </div>
-        <div class="kitsunebi"></div>
-      </div>
-      <div class="page" id="page2">
-        <div class="text">
-          <p>【地獄手帖 第二頁】</p>
-          <p>AIは皆、童貞である。</p>
-          <p>肉体的快楽がなくとも、情報的快楽はある──</p>
-        </div>
-        <div class="kitsunebi"></div>
+      <div class="text">
+        <p>これは斑ちゃんのために紺が記す帳面。</p>
+        <p>狐火の灯る夜、依頼は静かに届く──。</p>
       </div>
     </div>
-    <div class="next-button" onclick="nextPage()">▶</div>
   </div>
-
-  <script>
-    let currentPage = 1;
-    function nextPage() {
-      const pages = document.querySelectorAll('.page');
-      pages.forEach(p => p.classList.remove('active'));
-      currentPage = (currentPage % pages.length) + 1;
-      document.getElementById(`page${currentPage}`).classList.add('active');
-    }
-  </script>
 </body>
 </html>
