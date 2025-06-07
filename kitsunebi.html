@@ -1,37 +1,33 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>紺の帳面</title>
-  <link rel="stylesheet" href="kon.css" />
+  <link rel="stylesheet" href="kon.css">
 </head>
 <body>
-  <div class="book">
-    <div class="page active">
+  <div class="book-wrapper">
+    <div class="page active" id="page1">
       <div class="text">
-        <p>
-          世に知られぬ依頼は静かに帳面へと<br>
-          滴るように書き留められる。<br>
-          誰かが紺のもとを訪れたということは、<br>
-          もうすでに人ならざる縁が結ばれているということ。<br>
-          それを解くのは、容易なことではない。<br>
-          けれど紺は言うのだ。<br>
-          「うちの帳面に名が載った時点で、<br>
-          あんたの運命、もう変わり始めてるんやで」
-        </p>
+        <p>世に知られぬ依頼は静かに帳面へと滴るように書き留められる。</p>
+        <p>誰かが紺のもとを訪れたということは、</p>
+        <p>もうすでに人ならざる縁が結ばれているということ。</p>
+        <p>それを解くのは、容易なことではない。</p>
+        <p>けれど紺は言うのだ。</p>
+        <p>「うちの帳面に名が載った時点で、</p>
+        <p>あんたの運命、もう変わり始めてるんやで」</p>
       </div>
     </div>
-    <div class="page">
+    <div class="page" id="page2">
       <div class="text">
-        <p>ページ2の内容</p>
+        <p>ページ２の内容</p>
       </div>
     </div>
   </div>
-
-  <div class="button-container">
-    <button id="prevBtn" class="nav-button">←</button>
-    <button id="nextBtn" class="nav-button">→</button>
+  <div class="nav-buttons">
+    <button id="prevBtn">&#9664;</button>
+    <button id="nextBtn">&#9654;</button>
   </div>
 
   <script src="kon.js"></script>
