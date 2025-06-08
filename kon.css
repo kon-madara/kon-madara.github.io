@@ -1,3 +1,6 @@
+/* ===========================
+  共通レイアウト
+=========================== */
 body {
   margin: 0;
   padding: 0;
@@ -6,6 +9,7 @@ body {
   font-family: "Yu Mincho", serif;
 }
 
+/* 背景ノート画像の中央固定。 */
 .notebook-container {
   position: fixed;
   top: 0; left: 0;
@@ -19,31 +23,82 @@ body {
   z-index: 0;
 }
 
+/* ===========================
+  縦書きページ基本設定
+=========================== */
 .page {
-  position: relative;
-  width: 70vw;
+  position: relative;   /* 必ずrelative。絶対NG：absolute */
+  width: 70vw;          /* テキストエリア幅（本に合うように調整） */
   max-width: 500px;
-  height: 80vh;
+  height: 80vh;         /* テキストエリア高さ */
   max-height: 700px;
   display: flex;
   justify-content: center;
   align-items: center;
   writing-mode: vertical-rl;
-  /* デフォルトの文字サイズはここ（標準） */
-  font-size: 1.5rem;
+  font-size: 1.7rem;     /* ▼デフォルト文字サイズ（変更可） */
   color: #222;
   text-align: justify;
-  padding-top: 5vh;
+  padding-top: 5vh;      /* ▼上マージン */
   box-sizing: border-box;
   z-index: 1;
   background: transparent;
   pointer-events: auto;
 }
 
+/* ページ非表示（JSで切替） */
 .hidden {
   display: none !important;
 }
 
+/* ===========================
+  デバイス＆ブラウザ別メディアクエリ
+=========================== */
+
+/* 小さい画面向け・可変対応。幅や文字サイズはここで微調整！ */
+@media screen and (max-width: 600px) {
+  .page {
+    width: 92vw;
+    font-size: 1.15rem;   /* ▼スマホ基準の共通文字サイズ */
+    padding-top: 7vh;
+  }
+}
+
+/* ========== Safari 専用 ========== */
+/*
+  Safari独自のブラウザ検出ハック
+  Safari用の文字サイズ・余白などを自由に変えられる！
+*/
+@media not all and (min-resolution:.001dpcm) { 
+  @supports (-webkit-appearance:none) {
+    .page {
+      font-size: 1.25rem;    /* ←Safariの文字サイズ（ここだけ変更すればOK！） */
+      padding-top: 10vh;     /* ←Safariの上余白。狐火と重なるなら増減 */
+    }
+    .foxfire {
+      bottom: 7vh;           /* ←Safariで狐火を下げたい時はここを増やす */
+    }
+  }
+}
+
+/* ========== Chrome（その他汎用） ========== */
+/*
+  Chrome・Edge等、Webkit以外にだけ適用したい場合
+  ※Safariだけ外すなら@supports not (-webkit-appearance:none)
+*/
+@supports not (-webkit-appearance:none) {
+  .page {
+    font-size: 1.09rem;      /* ←Chromeの文字サイズ（好きに変えて！） */
+    padding-top: 8vh;        /* ←Chromeで文字を下げる余白 */
+  }
+  .foxfire {
+    bottom: 13vh;            /* ←Chromeで狐火を下げたい時はここを調整 */
+  }
+}
+
+/* ===========================
+  ボタン配置・端ギリギリ寄せ
+=========================== */
 .buttons {
   position: fixed;
   bottom: 7vh;
@@ -51,7 +106,7 @@ body {
   width: 100vw;
   display: flex;
   justify-content: space-between;
-  padding: 0 10vw;
+  padding: 0 2vw;      /* 端ギリギリ寄せたいなら値を小さく！ */
   z-index: 10;
 }
 
@@ -63,11 +118,14 @@ button {
   font-size: 1.2rem;
   cursor: pointer;
   border-radius: 12px;
+  /* ボタンサイズやフォントも自由に */
 }
 
+/* ===========================
+  狐火アニメ
+=========================== */
 .foxfire {
   position: fixed;
-  bottom: 10vh;
   left: 50vw;
   width: 40px;
   height: 60px;
@@ -76,8 +134,10 @@ button {
   animation: flicker 1.5s infinite ease-in-out alternate;
   border-radius: 50% 50% 40% 40% / 60% 60% 30% 30%;
   z-index: 10;
+  /* bottomはSafari/Chromeごとで調整 */
 }
 
+/* 狐火アニメーション本体 */
 @keyframes flicker {
   0% {
     transform: translateX(-50%) scale(1) rotate(0deg);
@@ -89,30 +149,14 @@ button {
   }
 }
 
-/* 端末サイズ調整（スマホ用） */
-@media screen and (max-width: 600px) {
-  .page {
-    width: 92vw;
-    max-width: none;
-    font-size: 1.1rem; /* 端末が小さい場合の標準 */
-    padding-top: 7vh;
-  }
-}
-
-/* Safari専用：文字サイズを変更（ここを変えればOK） */
-@media not all and (min-resolution:.001dpcm) {
-  @supports (-webkit-appearance:none) {
-    .page {
-      font-size: 1.3rem; /* ← Safariだけのサイズをここで設定 */
-      padding-top: 8vh;
-    }
-  }
-}
-
-/* Chrome専用：文字サイズを変更（ここを変えればOK） */
-@supports not (-webkit-appearance:none) {
-  .page {
-    font-size: 1.3rem; /* ← Chromeだけのサイズをここで設定 */
-    padding-top: 11vh;
-  }
-}
+/* ===========================
+  コメントで編集ポイントを説明
+=========================== */
+/*
+  ▼文字サイズをSafariだけ変えたい場合
+    @media not all and (min-resolution:.001dpcm) { ... }
+  ▼Chromeだけ変えたい場合
+    @supports not (-webkit-appearance:none) { ... }
+  ▼狐火位置をSafari/Chrome別で調整したい場合は、各 .foxfire の bottom 値で微調整！
+  ▼ボタンをギリギリ端に寄せたい時は .buttons の padding を小さく！
+*/
