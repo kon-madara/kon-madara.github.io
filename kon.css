@@ -7,7 +7,7 @@ body {
 }
 
 .notebook-container {
-  position: fixed;      /* ←fixedで常に中央 */
+  position: fixed;
   top: 0; left: 0;
   width: 100vw;
   height: 100vh;
@@ -20,7 +20,7 @@ body {
 }
 
 .page {
-  position: relative;      /* ←ここ重要！absoluteはNG */
+  position: relative;
   width: 70vw;
   max-width: 500px;
   height: 80vh;
@@ -29,7 +29,8 @@ body {
   justify-content: center;
   align-items: center;
   writing-mode: vertical-rl;
-  font-size: 1.7rem;
+  /* デフォルトの文字サイズはここ（標準） */
+  font-size: 1.5rem;
   color: #222;
   text-align: justify;
   padding-top: 5vh;
@@ -37,7 +38,6 @@ body {
   z-index: 1;
   background: transparent;
   pointer-events: auto;
-  /* overflow: hidden; 必要なら追加 */
 }
 
 .hidden {
@@ -89,22 +89,30 @@ button {
   }
 }
 
-/* 端末・ブラウザ差分調整 */
+/* 端末サイズ調整（スマホ用） */
 @media screen and (max-width: 600px) {
   .page {
     width: 92vw;
-    font-size: 1.18rem;
+    max-width: none;
+    font-size: 1.1rem; /* 端末が小さい場合の標準 */
     padding-top: 7vh;
   }
 }
 
-/* Safari調整 */
-@media not all and (min-resolution:.001dpcm) { 
+/* Safari専用：文字サイズを変更（ここを変えればOK） */
+@media not all and (min-resolution:.001dpcm) {
   @supports (-webkit-appearance:none) {
-    .page { padding-top: 8vh; }
+    .page {
+      font-size: 1.3rem; /* ← Safariだけのサイズをここで設定 */
+      padding-top: 8vh;
+    }
   }
 }
-/* Chrome調整 */
+
+/* Chrome専用：文字サイズを変更（ここを変えればOK） */
 @supports not (-webkit-appearance:none) {
-  .page { padding-top: 11vh; }
+  .page {
+    font-size: 1.3rem; /* ← Chromeだけのサイズをここで設定 */
+    padding-top: 11vh;
+  }
 }
