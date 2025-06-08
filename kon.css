@@ -81,7 +81,7 @@ button {
 /* ==== 狐火のアニメ・位置 ==== */
 .foxfire {
   position: fixed;
-  bottom: 12vh; /* ←ここを変えると上下位置が変わります（デフォルト12vh） */
+  bottom: 6vh; /* ←ここを変えると上下位置が変わります（デフォルト12vh） */
   left: 50vw;
   width: 40px;
   height: 60px;
@@ -126,7 +126,7 @@ button {
       padding-top: 7.5vh;
     }
     .foxfire {
-      bottom: 17vh; /* Safariの狐火は上へオフセット */
+      bottom: 15vh; /* Safariの狐火は上へオフセット */
     }
   }
 }
@@ -138,7 +138,7 @@ button {
     padding-top: 10vh;
   }
   .foxfire {
-    bottom: 13vh;
+    bottom: 15vh;
   }
 }
 
