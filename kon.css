@@ -39,7 +39,7 @@ body {
 @media not all and (min-resolution:.001dpcm) { 
   @supports (-webkit-appearance:none) {
     .page {
-      padding-top: 5rem; /* Safari用に上部余白を追加 */
+      padding-top: 6rem; /* Safari用に上部余白を追加 */
     }
   }
 }
