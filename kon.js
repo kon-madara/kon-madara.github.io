@@ -1,16 +1,15 @@
 let currentPage = 1;
-const totalPages = 2;
+const pages = document.querySelectorAll('.page');
+const totalPages = pages.length;
 
 function updatePageVisibility() {
-  for (let i = 1; i <= totalPages; i++) {
-    document.getElementById(`page${i}`).classList.toggle("hidden", i !== currentPage);
-  }
+  pages.forEach((page, idx) => {
+    page.classList.toggle('hidden', idx + 1 !== currentPage);
+  });
 }
 
-// 初期表示を更新
 document.addEventListener("DOMContentLoaded", updatePageVisibility);
 
-// 「進む」ボタンの処理
 document.getElementById("nextBtn").addEventListener("click", () => {
   if (currentPage < totalPages) {
     currentPage++;
@@ -18,7 +17,6 @@ document.getElementById("nextBtn").addEventListener("click", () => {
   }
 });
 
-// 「戻る」ボタンの処理
 document.getElementById("prevBtn").addEventListener("click", () => {
   if (currentPage > 1) {
     currentPage--;
