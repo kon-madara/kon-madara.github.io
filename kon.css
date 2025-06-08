@@ -21,16 +21,21 @@ body {
 }
 
 .page {
-  display: none;
-  width: 70%;
+  position: absolute;
+  width: 80%;
   height: 80%;
+  top: 52%; /* これを微調整して上下の位置調整 */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   writing-mode: vertical-rl;
-  font-size: 1.3rem;
+  font-size: 1.3rem; /* サイズも微調整可能 */
   color: #222;
-  padding: 1rem;
-  box-sizing: border-box;
-  overflow: hidden;
   text-align: justify;
+  padding: 1rem; /* 余白を調整して背景に収める */
+  box-sizing: border-box;
 }
 
 .page.active {
