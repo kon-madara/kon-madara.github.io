@@ -1,37 +1,21 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const loading = document.getElementById("loading");
-  const notebookContainer = document.querySelector(".notebook-container");
-  const pages = document.querySelectorAll(".page");
-  const totalPages = pages.length;
-  let currentPage = 1;
+let currentPage = 1;
+const totalPages = 2;
 
-  // ページ番号を更新する関数
-  const updatePageVisibility = () => {
-    pages.forEach((page, index) => {
-      page.classList.toggle("hidden", index !== currentPage - 1);
-    });
-  };
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
 
-  // 次のページへ移動
-  document.getElementById("nextBtn").addEventListener("click", () => {
-    if (currentPage < totalPages) {
-      currentPage++;
-      updatePageVisibility();
-    }
-  });
+prevBtn.addEventListener("click", () => {
+  if (currentPage > 1) {
+    document.getElementById(`page${currentPage}`).classList.add("hidden");
+    currentPage--;
+    document.getElementById(`page${currentPage}`).classList.remove("hidden");
+  }
+});
 
-  // 前のページへ移動
-  document.getElementById("prevBtn").addEventListener("click", () => {
-    if (currentPage > 1) {
-      currentPage--;
-      updatePageVisibility();
-    }
-  });
-
-  // ページ読み込み完了後の処理
-  window.addEventListener("load", () => {
-    loading.style.display = "none";
-    notebookContainer.style.display = "flex";
-    updatePageVisibility();
-  });
+nextBtn.addEventListener("click", () => {
+  if (currentPage < totalPages) {
+    document.getElementById(`page${currentPage}`).classList.add("hidden");
+    currentPage++;
+    document.getElementById(`page${currentPage}`).classList.remove("hidden");
+  }
 });
