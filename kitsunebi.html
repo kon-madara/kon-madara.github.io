@@ -1,37 +1,27 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>紺の帳面</title>
-  <link rel="stylesheet" href="kon.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>地獄帳面ページ捲りデモ</title>
+  <link rel="stylesheet" href="kon.css">
 </head>
 <body>
-  <div class="notebook-container">
-    <div class="page active" id="page1">
-      <div class="text">
-        これは紺の帳面に記された依頼のひとつ。<br>
-        闇夜に揺れる狐火と共に、<br>
-        ひっそりと書き記された物語。
-      </div>
+  <div class="book">
+    <div id="pages">
+      <div class="page left">1ページ目（左）</div>
+      <div class="page right">2ページ目（右）</div>
+      <div class="page left">3ページ目（左）</div>
+      <div class="page right">4ページ目（右）</div>
+      <div class="page left">5ページ目（左）</div>
+      <div class="page right">6ページ目（右）</div>
+      <!-- ここにページを増やせる -->
     </div>
-    <div class="page" id="page2">
-      <div class="text">
-        依頼は続く。<br>
-        魂を鎮め、<br>
-        真実を暴くのが、<br>
-        夜雨紺の役目──。
-      </div>
+    <div class="button-row">
+      <button id="prevBtn">← 戻る</button>
+      <button id="nextBtn">進む →</button>
     </div>
   </div>
-
-  <div class="buttons">
-    <button id="prevBtn">← 戻る</button>
-    <button id="nextBtn">進む →</button>
-  </div>
-
-  <div class="foxfire"></div>
-
   <script src="kon.js"></script>
 </body>
 </html>
