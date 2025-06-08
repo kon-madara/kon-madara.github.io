@@ -6,6 +6,15 @@ body {
   font-family: "Yu Mincho", serif;
 }
 
+#loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  z-index: 999;
+}
+
 .notebook-container {
   position: absolute;
   top: 50%;
@@ -15,28 +24,30 @@ body {
   transform: translate(-50%, -50%);
   background: url("https://github.com/kon-madara/kon-madara.github.io/blob/main/image/2C40349F-8B81-4306-B035-B480FB98C9AD.png?raw=true") no-repeat center center;
   background-size: contain;
-  display: flex;
+  display: none; /* 読み込み完了後にJavaScriptで表示 */
   justify-content: center;
   align-items: center;
 }
 
 .page {
   position: absolute;
-  width: 76%;
-  height: 76%;
+  width: 80%;
+  height: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
   writing-mode: vertical-rl;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   color: #222;
   text-align: justify;
-  padding: 1.5rem;
+  padding: 2rem;
   box-sizing: border-box;
+  transition: opacity 0.5s ease;
 }
 
 .hidden {
-  display: none;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .buttons {
@@ -46,8 +57,6 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 0 5vw;
-  box-sizing: border-box;
-  z-index: 10;
 }
 
 button {
@@ -66,15 +75,14 @@ button:hover {
 
 .foxfire {
   position: absolute;
-  bottom: 8%;
+  bottom: 10%;
   left: 50%;
-  width: 30px;
-  height: 50px;
+  width: 40px;
+  height: 60px;
   transform: translateX(-50%);
-  background: radial-gradient(ellipse at center, rgba(255, 100, 100, 0.6) 0%, transparent 70%);
+  background: radial-gradient(ellipse at center, rgba(255, 100, 100, 0.7) 0%, transparent 70%);
   animation: flicker 1.5s infinite ease-in-out alternate;
   border-radius: 50% 50% 40% 40% / 60% 60% 30% 30%;
-  opacity: 0.8;
 }
 
 @keyframes flicker {
@@ -83,7 +91,15 @@ button:hover {
     opacity: 0.8;
   }
   100% {
-    transform: translateX(-50%) scale(1.2) rotate(5deg);
+    transform: translateX(-50%) scale(1.2) rotate(3deg);
     opacity: 0.4;
+  }
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .page {
+    font-size: 1.2rem;
+    padding: 1rem;
   }
 }
