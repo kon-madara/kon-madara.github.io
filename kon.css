@@ -10,19 +10,19 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 80vw;
-  height: 90vh;
+  width: 100vw;
+  height: 100vh;
   transform: translate(-50%, -50%);
   background: url("https://github.com/kon-madara/kon-madara.github.io/blob/main/image/2C40349F-8B81-4306-B035-B480FB98C9AD.png?raw=true") no-repeat center center;
-  background-size: contain;
+  background-size: cover; /* 背景画像を画面いっぱいに表示 */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .page {
-  width: 70%;
-  height: 80%;
+  width: 80%;
+  height: 85%;
   writing-mode: vertical-rl;
   font-size: 1.2rem;
   color: #222;
@@ -38,11 +38,12 @@ body {
 
 .buttons {
   position: absolute;
-  bottom: 3vh;
-  width: 100%;
+  bottom: 4vh;
+  width: 90%;
   display: flex;
   justify-content: space-between;
-  padding: 0 10vw;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 button {
@@ -61,7 +62,7 @@ button:hover {
 
 .foxfire {
   position: absolute;
-  bottom: 12%;
+  bottom: 8%;
   left: 50%;
   width: 30px;
   height: 50px;
