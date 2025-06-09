@@ -1,30 +1,111 @@
-body {
+html, body {
+  height: 100%;
   margin: 0;
-  font-family: 'Yu Mincho', serif;
+  padding: 0;
+  font-family: 'Yu Mincho', 'Hiragino Mincho ProN', serif;
   color: #fff4ea;
+  background: #000;
+  overflow-x: hidden;
+}
+
+/* 地獄背景（画像ファイルは適宜変更） */
+.background {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
   background: url('image/7655C68F-8669-472A-8F3F-55CAEEB4181A.png') center center / cover fixed no-repeat;
-  background-color: #000;
+  z-index: -1;
 }
 
-.recipe-wrapper {
-  background: rgba(30, 10, 10, 0.8);
-  margin: 5vh auto;
-  padding: 2rem;
-  max-width: 640px;
+/* レシピ全体 */
+.recipe-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10vh 5vw 12vh;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* 各ページ（1ページ＝1レシピ） */
+.recipe-page {
+  background: rgba(40, 0, 0, 0.82);
+  border: 2px solid #aa4444;
+  box-shadow: 0 0 25px #aa444488;
   border-radius: 1rem;
-  box-shadow: 0 0 24px #fa6767aa;
+  padding: 2rem;
+  max-width: 720px;
+  width: 100%;
+  margin: auto;
+  display: none;
+  transition: opacity 0.3s ease;
 }
 
-h1, h2 {
-  color: #fa6767;
-  text-shadow: 0 0 5px #000;
+.recipe-page.active {
+  display: block;
 }
 
-ul, ol {
-  padding-left: 1.5rem;
-  line-height: 1.8;
+/* タイトル調整 */
+.recipe-page h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.5em;
 }
 
-li {
-  margin-bottom: 0.6em;
+.recipe-page h3 {
+  margin-top: 1.2em;
+  margin-bottom: 0.4em;
+  font-size: 1.1rem;
+}
+
+.recipe-page ul, .recipe-page ol {
+  margin-left: 1.2em;
+  padding-left: 0;
+}
+
+.recipe-page li {
+  margin-bottom: 0.5em;
+}
+
+/* ナビボタン */
+.nav-btns {
+  position: fixed;
+  bottom: 2vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10vw;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.nav-btns button {
+  background: rgba(200, 50, 50, 0.88);
+  color: #fff4ea;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.6rem 1.8rem;
+  box-shadow: 0 0 12px #ff4444aa, 0 3px 10px #000b;
+  font-family: 'Yu Mincho', serif;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: transform 0.15s ease, background 0.25s;
+}
+
+.nav-btns button:active {
+  transform: scale(0.95);
+  background: #cc3333;
+}
+
+/* レスポンシブ調整 */
+@media (max-width: 600px) {
+  .recipe-page {
+    padding: 1.6rem;
+    font-size: 4.6vw;
+  }
+  .nav-btns button {
+    font-size: 1rem;
+    padding: 0.5rem 1.4rem;
+  }
 }
