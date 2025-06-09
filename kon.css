@@ -1,3 +1,6 @@
+/* -------------------------------
+   全体構造
+--------------------------------- */
 html, body {
   height: 100%;
   margin: 0;
@@ -9,7 +12,8 @@ html, body {
 }
 
 body.kon-notebook {
-  background: url('image/kon.image1.png') no-repeat center center fixed;
+  min-height: 100vh;
+  background: url('https://kon-madara.github.io/image/kon.image1.png') no-repeat center center fixed;
   background-size: cover;
   font-family: 'Shippori Mincho B1', serif;
   display: flex;
@@ -17,6 +21,9 @@ body.kon-notebook {
   align-items: center;
 }
 
+/* -------------------------------
+   中央フレーム（帳面枠）
+--------------------------------- */
 .frame {
   width: 360px;
   height: 520px;
@@ -28,7 +35,9 @@ body.kon-notebook {
   overflow: hidden;
 }
 
-/* 各ページ */
+/* -------------------------------
+   ページ（1ページずつ切り替え）
+--------------------------------- */
 .page {
   position: absolute;
   inset: 0;
@@ -43,6 +52,9 @@ body.kon-notebook {
   z-index: 10;
 }
 
+/* -------------------------------
+   縦書き本文エリア
+--------------------------------- */
 .text-area {
   flex: 1;
   overflow-y: auto;
@@ -61,12 +73,16 @@ body.kon-notebook {
   margin-block: 1em;
 }
 
+/* -------------------------------
+   ページ切り替えボタン
+--------------------------------- */
 .btn-box {
   text-align: center;
   padding-top: 10px;
 }
 
-button.next, button.prev {
+button.next,
+button.prev {
   padding: 8px 16px;
   font-family: inherit;
   background-color: #4c6cb3;
@@ -78,7 +94,9 @@ button.next, button.prev {
   margin: 0 10px;
 }
 
-/* 狐火アニメーション */
+/* -------------------------------
+   狐火アニメーション
+--------------------------------- */
 .kitsunebi {
   position: fixed;
   bottom: 20px;
@@ -99,7 +117,9 @@ button.next, button.prev {
   100% { transform: translate(-50%, 0px); }
 }
 
-/* モバイル対応 */
+/* -------------------------------
+   モバイル対応
+--------------------------------- */
 @media (max-width: 480px) {
   .frame {
     width: 90%;
