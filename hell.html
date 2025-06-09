@@ -1,33 +1,27 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
   <title>地獄葬送レシピ</title>
-  <link rel="stylesheet" href="hell.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="hell.css">
 </head>
 <body>
-  <div class="hell-bg"></div>
+  <div class="background"></div>
+
   <div class="recipe-container">
     <div class="recipe-page active">
-      <div class="recipe-text">
-        オートミールを水でふやかし、納豆・卵と混ぜて加熱。<br>
-        魂も胃袋も満たす地獄粥。
-      </div>
+      オートミールを水でふやかし、納豆・卵と混ぜて加熱。<br>
+      魂も胃袋も満たす地獄粥。
     </div>
-    <!-- 2ページ目以降はこのブロックをコピペして増やせる -->
-    <!--
-    <div class="recipe-page">
-      <div class="recipe-text">
-        2ページ目のレシピ内容
-      </div>
-    </div>
-    -->
+    <!-- 2ページ目以降も .recipe-page で追加OK -->
   </div>
-  <div class="hell-buttons">
-    <button id="prevBtn">← 戻る</button>
-    <button id="nextBtn">進む →</button>
+
+  <div class="nav-btns">
+    <button id="prevBtn">&larr; 戻る</button>
+    <button id="nextBtn">進む &rarr;</button>
   </div>
+
   <script src="hell.js"></script>
 </body>
 </html>
