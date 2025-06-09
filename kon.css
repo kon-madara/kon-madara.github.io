@@ -16,26 +16,30 @@ body.kon-notebook {
 }
 
 .page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   width: 100%;
-  height: 520px; /* ← ページ全体の高さ固定 */
+  height: 520px;
   background-color: rgba(255, 255, 255, 0.88);
   border: 1px solid #aaa;
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-  display: none;
   z-index: 1;
   backdrop-filter: blur(1.5px);
   overflow: hidden;
+
+  display: none;
 }
 
 .page.active {
-  display: block;
-  z-index: 10;
+  display: flex;
 }
 
 .text-area {
-  height: 400px;
+  flex: 1;
   overflow-y: auto;
   writing-mode: vertical-rl;
   text-orientation: mixed;
@@ -54,7 +58,7 @@ body.kon-notebook {
 
 .btn-box {
   text-align: center;
-  margin-top: 20px;
+  padding-top: 10px;
 }
 
 button.next, button.prev {
@@ -105,6 +109,6 @@ button.next, button.prev {
   }
 
   .text-area {
-    height: 360px;
+    height: auto; /* 縦方向は自動で */
   }
 }
