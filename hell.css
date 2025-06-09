@@ -1,67 +1,67 @@
 body {
   margin: 0;
   padding: 0;
+  font-family: "Yu Mincho", serif;
+  background: url('image/7655C68F-8669-472A-8F3F-55CAEEB4181A.png') no-repeat center center fixed;
+  background-size: cover;
   min-height: 100vh;
-  background: url('image/7655C68F-8669-472A-8F3F-55CAEEB4181A.png') no-repeat center center/cover;
-  font-family: "游明朝", "Yu Mincho", serif;
 }
 
-/* レシピカード本体 */
 .recipe-card {
-  margin: 8vh auto 0 auto;
-  width: 90vw;
-  max-width: 700px;
-  background: rgba(40, 0, 0, 0.78); /* 地獄の闇色（透過） */
-  border: 3px solid #a33;           /* 赤い縁 */
-  border-radius: 22px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.65), 0 0 20px #a33 inset;
-  color: #f9e9d3;                   /* 和紙っぽい文字色 */
-  font-size: 1.4rem;
-  padding: 2.5rem;
-  line-height: 2.4rem;
-  letter-spacing: 0.07em;
-  text-shadow: 0 0 8px #400, 0 0 2px #fff3;
-  box-sizing: border-box;
+  margin: 7vh auto 0 auto;
+  padding: 2em 2em;
+  max-width: 90vw;
+  background: rgba(255,245,230,0.96); /* 薄い黄味+透け感 */
+  border-radius: 24px;
+  border: 4px solid #9C7C6B;
+  box-shadow: 0 6px 18px rgba(100,40,20,0.25);
+  font-size: 1.22rem;
+  color: #6B5342;
+  min-height: 20vh;
+  line-height: 1.9;
+  transition: box-shadow 0.3s;
 }
 
-/* ボタン配置 */
-.hell-buttons {
-  width: 94vw;
-  max-width: 720px;
-  margin: 2.5vh auto 0 auto;
+/* レシピページの切替 */
+.recipe-page {
+  display: none;
+}
+.recipe-page.active {
+  display: block;
+}
+
+.nav-buttons {
+  margin: 4vh auto 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 2.5em;
 }
 
-/* ボタンデザイン */
-button {
-  background: #a33;
+.nav-buttons button {
+  min-width: 120px;
+  padding: 1em 1.4em;
+  font-size: 1.18rem;
+  background: #444;
   color: #fff;
   border: none;
   border-radius: 14px;
-  padding: 1rem 2.5rem;
-  font-size: 1.3rem;
-  margin: 0 1vw;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.25);
-  transition: background 0.2s, transform 0.15s;
-  cursor: pointer;
-  letter-spacing: 0.09em;
+  box-shadow: 0 4px 14px rgba(100,40,20,0.13);
+  transition: background 0.2s;
 }
-button:hover {
-  background: #d00;
-  transform: scale(1.06);
+.nav-buttons button:active {
+  background: #222;
 }
 
-@media (max-width: 600px) {
+/* スマホ用微調整 */
+@media (max-width: 700px) {
   .recipe-card {
-    font-size: 1.08rem;
-    padding: 1.4rem;
+    padding: 1.2em 0.7em;
+    font-size: 1.05rem;
+    margin: 4vh 3vw 0 3vw;
   }
-  button {
-    font-size: 1.07rem;
-    padding: 0.8rem 1.2rem;
-  }
-  .hell-buttons {
-    width: 98vw;
+  .nav-buttons button {
+    min-width: 100px;
+    padding: 0.9em 0.7em;
+    font-size: 1rem;
   }
 }
