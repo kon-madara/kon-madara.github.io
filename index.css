@@ -23,7 +23,7 @@ body, html {
   top: 8%;
   width: 100%;
   text-align: center;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   animation: fadeInOut 10s ease-in-out infinite;
 }
 
@@ -31,7 +31,6 @@ body, html {
   margin: 1em 0;
 }
 
-/* 🔁 フェード */
 @keyframes fadeInOut {
   0% { opacity: 0; }
   10% { opacity: 1; }
@@ -43,14 +42,16 @@ body, html {
 /* 🦊 アイコンバー */
 .icon-bar {
   position: absolute;
-  bottom: 5px;
+  bottom: 20px;
   width: 100%;
   text-align: center;
 }
 
 .icon {
-  height: 40px;
-  margin: 0 15px;
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  margin: 0 10px;
   transition: transform 0.3s;
 }
 
@@ -58,7 +59,7 @@ body, html {
   transform: scale(1.1);
 }
 
-/* ☔️ CSS雨エフェクト（簡易） */
+/* ☔️ 雨エフェクト */
 .rain {
   pointer-events: none;
   position: fixed;
