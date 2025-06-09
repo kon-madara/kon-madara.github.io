@@ -1,80 +1,88 @@
-/* 🌌 背景画像 */
-body, html {
+/* 💫 初期設定 */
+html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow: hidden;
-  font-family: 'Times New Roman', serif;
+  font-family: "Times New Roman", serif;
   color: white;
+  overflow: hidden;
+  background-color: black;
 }
 
+/* 🌌 背景画像 */
 .background {
   background: url('image/E0DCA0C5-FE71-4A5B-B745-AE88FBF72DF8.png') no-repeat center center fixed;
   background-size: cover;
   position: absolute;
   top: 0; left: 0;
-  width: 100%; height: 100%;
-  z-index: -2;
+  width: 100%;
+  height: 100%;
+  z-index: -3;
 }
 
-/* ✍️ 詩フェード */
+/* ✍️ 詩表示 */
 .poem-container {
   position: absolute;
-  top: 8%;
+  top: 10%;
   width: 100%;
   text-align: center;
-  font-size: 1.2rem;
-  animation: fadeInOut 10s ease-in-out infinite;
+  font-size: 1.4rem;
+  text-shadow: 0 0 5px black;
+  z-index: 1;
 }
 
 .poem-line {
   margin: 1em 0;
+  animation: fadeInOut 12s ease-in-out infinite;
 }
 
 @keyframes fadeInOut {
-  0% { opacity: 0; }
-  10% { opacity: 1; }
-  40% { opacity: 1; }
-  60% { opacity: 0; }
-  100% { opacity: 0; }
+  0%, 100% { opacity: 0; }
+  10%, 40% { opacity: 1; }
+  60%, 90% { opacity: 0; }
 }
 
 /* 🦊 アイコンバー */
 .icon-bar {
   position: absolute;
-  bottom: 20px;
+  bottom: 5%;
   width: 100%;
   text-align: center;
+  z-index: 1;
 }
 
 .icon {
-  width: 64px;
-  height: 64px;
-  object-fit: contain;
-  margin: 0 10px;
-  transition: transform 0.3s;
+  width: 60px;
+  height: 60px;
+  margin: 0 20px;
+  transition: transform 0.3s ease;
 }
 
 .icon:hover {
   transform: scale(1.1);
 }
 
-/* ☔️ 雨エフェクト */
-.rain {
+/* ☔️ 雨エフェクト（より自然） */
+.rain-layer {
   pointer-events: none;
   position: fixed;
   top: 0; left: 0;
   width: 100%;
   height: 100%;
   background-image: 
-    linear-gradient(transparent, rgba(255,255,255,0.1)),
-    linear-gradient(transparent, rgba(255,255,255,0.05));
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.06),
+      rgba(255, 255, 255, 0.06) 1px,
+      transparent 1px,
+      transparent 3px
+    );
   background-size: 2px 100px;
-  animation: rain 0.5s linear infinite;
-  z-index: -1;
+  animation: rainFall 0.8s linear infinite;
+  z-index: -2;
 }
 
-@keyframes rain {
-  0% { background-position: 0 0, 50px 0; }
-  100% { background-position: 0 100px, 50px 100px; }
+@keyframes rainFall {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 100px; }
 }
