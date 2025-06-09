@@ -1,53 +1,50 @@
-/* 背景画像 */
+/* ▼背景画像 全画面表示 */
 .background {
   position: fixed;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
-  background: url("image/haikei1.png") no-repeat center center;
-  background-size: cover;
+  top: 0; left: 0; width: 100vw; height: 100vh;
   z-index: 0;
+  background: url('image/haikei1.png') no-repeat center center;
+  background-size: cover;
   pointer-events: none;
 }
 
-/* 雨エフェクト */
+/* ▼雨エフェクト Canvas */
 .rain {
   position: fixed;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
-  z-index: 3;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  z-index: 1;
   pointer-events: none;
 }
 
-/* 詩コンテナ */
+/* ▼詩のフェード演出コンテナ */
 .poem-container {
-  position: fixed;
-  top: 13vh;
+  position: absolute;
+  top: 10vh;           /* ←詩の縦位置。数字で上下調整OK */
   left: 0; width: 100vw;
   text-align: center;
   color: #fff;
-  font-family: "Yu Mincho", serif;
-  font-size: 2.1rem;
-  letter-spacing: 0.08em;
-  text-shadow: 0 2px 8px #263247, 0 1px 0 #111;
-  z-index: 4;
-  opacity: 0;
-  transition: opacity 2.2s cubic-bezier(.45, .14, .47, 1.08);
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: 2.2rem;   /* ←詩のサイズ */
+  letter-spacing: 0.15em;
+  z-index: 2;
+  pointer-events: none;
 }
-
 .poem-line {
-  margin: 0.6em 0;
+  opacity: 0;
+  transition: opacity 2.2s;
+  margin: 1vh 0;
 }
 
+/* ▼アイコンバー（下部中央・上めに調整可） */
 .icon-bar {
-  position: fixed;
-  bottom: 13vh; /* ここで上に移動（数値で上下余白調整OK） */
-  left: 50%;
-  transform: translateX(-50%);
+  position: absolute;
+  left: 0; width: 100vw;
+  bottom: 22vh;      /* ←さらに上げたい時は数値UP。下げるならDOWN */
   display: flex;
-  gap: 2.6rem;
-  z-index: 5;
+  justify-content: center;
+  gap: 2.4rem;
+  z-index: 3;
 }
-
 .icon {
   width: 60px; height: 60px;
   border-radius: 50%;
@@ -57,9 +54,9 @@
 }
 .icon:hover { transform: scale(1.11); }
 
-/* レスポンシブ */
+/* ▼スマホ用レスポンシブ */
 @media (max-width: 600px) {
-  .poem-container { font-size: 1.2rem; }
-  .icon { width: 46px; height: 46px; }
-  .icon-bar { bottom: 9vh; gap: 1.4rem; }
+  .poem-container { font-size: 1.1rem; top: 6vh; }
+  .icon { width: 42px; height: 42px; }
+  .icon-bar { bottom: 16vh; gap: 1.1rem; }
 }
