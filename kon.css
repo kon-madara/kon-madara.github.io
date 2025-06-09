@@ -8,27 +8,20 @@ body.kon-notebook {
 }
 
 .book {
-  perspective: 1500px;
   width: 100%;
-  max-width: 720px;
+  max-width: 680px;
   margin: 40px auto 100px;
   position: relative;
   padding: 0 10px;
 }
 
 .page {
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  overflow-wrap: break-word;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.88);
   border: 1px solid #aaa;
   border-radius: 8px;
-  padding: 40px;
+  padding: 30px;
   box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-  position: absolute;
-  top: 0;
-  left: 0;
   display: none;
   z-index: 1;
   backdrop-filter: blur(1.5px);
@@ -39,8 +32,20 @@ body.kon-notebook {
   z-index: 10;
 }
 
+.text-area {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  overflow-wrap: break-word;
+  line-height: 2;
+  font-size: 16px;
+}
+
+.btn-box {
+  text-align: center;
+  margin-top: 30px;
+}
+
 button.next, button.prev {
-  margin-top: 20px;
   padding: 8px 16px;
   font-family: inherit;
   background-color: #4c6cb3;
@@ -49,14 +54,7 @@ button.next, button.prev {
   border-radius: 4px;
   cursor: pointer;
   writing-mode: horizontal-tb;
-}
-
-button.prev {
-  float: left;
-}
-
-button.next {
-  float: right;
+  margin: 0 10px;
 }
 
 /* 狐火アニメーション */
@@ -80,14 +78,13 @@ button.next {
   100% { transform: translate(-50%, 0px); }
 }
 
-/* モバイル対応 */
+/* モバイル調整 */
 @media (max-width: 600px) {
   .book {
     max-width: 95%;
   }
 
-  .page {
-    padding: 30px 20px;
+  .text-area {
     font-size: 14px;
   }
 }
