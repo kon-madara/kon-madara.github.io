@@ -11,20 +11,22 @@ body.kon-notebook {
   width: 100%;
   max-width: 680px;
   margin: 40px auto 100px;
-  position: relative;
   padding: 0 10px;
+  position: relative;
 }
 
 .page {
   width: 100%;
+  height: 520px; /* ← ページ全体の高さ固定 */
   background-color: rgba(255, 255, 255, 0.88);
   border: 1px solid #aaa;
   border-radius: 8px;
-  padding: 30px;
+  padding: 20px;
   box-shadow: 0 8px 16px rgba(0,0,0,0.2);
   display: none;
   z-index: 1;
   backdrop-filter: blur(1.5px);
+  overflow: hidden;
 }
 
 .page.active {
@@ -33,16 +35,26 @@ body.kon-notebook {
 }
 
 .text-area {
+  height: 400px;
+  overflow-y: auto;
   writing-mode: vertical-rl;
   text-orientation: mixed;
-  overflow-wrap: break-word;
   line-height: 2;
   font-size: 16px;
+  padding-right: 10px;
+}
+
+.text-area h1 {
+  font-size: 18px;
+  margin-bottom: 1em;
+}
+.text-area p {
+  margin-block: 1em;
 }
 
 .btn-box {
   text-align: center;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 button.next, button.prev {
@@ -78,7 +90,7 @@ button.next, button.prev {
   100% { transform: translate(-50%, 0px); }
 }
 
-/* モバイル調整 */
+/* モバイル対応 */
 @media (max-width: 600px) {
   .book {
     max-width: 95%;
@@ -86,5 +98,13 @@ button.next, button.prev {
 
   .text-area {
     font-size: 14px;
+  }
+
+  .page {
+    height: 480px;
+  }
+
+  .text-area {
+    height: 360px;
   }
 }
