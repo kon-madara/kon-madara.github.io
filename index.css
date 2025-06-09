@@ -1,62 +1,65 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "Yu Mincho", serif;
-  background: #111;
-}
-
-/* 背景は全層で一番下 */
+/* 背景画像 */
 .background {
   position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
-  background: url('image/haikei1.png') no-repeat center center;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: url("image/haikei1.png") no-repeat center center;
   background-size: cover;
   z-index: 0;
   pointer-events: none;
 }
 
-/* 詩は中央寄せ＋z-indexで前面 */
+/* 雨エフェクト */
+.rain {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* 詩コンテナ */
 .poem-container {
-  position: relative;
-  z-index: 2;
-  width: 100vw;
-  margin-top: 12vh;
+  position: fixed;
+  top: 13vh;
+  left: 0; width: 100vw;
   text-align: center;
+  color: #fff;
+  font-family: "Yu Mincho", serif;
+  font-size: 2.1rem;
+  letter-spacing: 0.08em;
+  text-shadow: 0 2px 8px #263247, 0 1px 0 #111;
+  z-index: 4;
+  opacity: 0;
+  transition: opacity 2.2s cubic-bezier(.45, .14, .47, 1.08);
 }
 
 .poem-line {
-  color: #fff;
-  font-size: 1.4rem;
-  letter-spacing: 0.12em;
-  line-height: 2.2;
-  text-shadow: 0 2px 8px #000, 0 0 3px #222;
+  margin: 0.6em 0;
 }
 
-/* アイコンバー：下部固定、背景より前に */
 .icon-bar {
   position: fixed;
-  bottom: 4vh;
-  width: 100vw;
+  bottom: 13vh; /* ここで上に移動（数値で上下余白調整OK） */
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
-  justify-content: center;
-  gap: 3vw;
-  z-index: 3;
+  gap: 2.6rem;
+  z-index: 5;
 }
 
 .icon {
-  width: 56px;
-  height: 56px;
+  width: 60px; height: 60px;
   border-radius: 50%;
-  background: rgba(0,0,0,0.22);
-  box-shadow: 0 2px 12px #111;
+  background: rgba(0,0,0,0.13);
+  box-shadow: 0 2px 24px #222b, 0 0 2px #fff8;
   transition: transform 0.2s;
-  object-fit: cover;
 }
-.icon:hover { transform: scale(1.13); }
+.icon:hover { transform: scale(1.11); }
 
-@media (max-width: 700px) {
-  .poem-line { font-size: 1.08rem; }
-  .icon { width: 44px; height: 44px; }
+/* レスポンシブ */
+@media (max-width: 600px) {
+  .poem-container { font-size: 1.2rem; }
+  .icon { width: 46px; height: 46px; }
+  .icon-bar { bottom: 9vh; gap: 1.4rem; }
 }
