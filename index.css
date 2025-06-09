@@ -1,80 +1,23 @@
 body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow: hidden;
-  font-family: 'Times New Roman', serif;
-  color: white;
-  background-color: black;
+  margin: 0; padding: 0; height: 100%; width: 100%;
+  background: #000; /* デバッグ用 */
 }
 
-/* 背景画像 */
 .background {
-  background: url('image/haikei1.png') no-repeat center center fixed;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url("image/haikei1.png") no-repeat center center;
   background-size: cover;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  z-index: -3;
+  z-index: 0;
 }
 
-/* 雨エフェクト */
 .rain {
-  pointer-events: none;
   position: fixed;
   top: 0; left: 0;
-  width: 100%; height: 100%;
-  background-image: 
-    linear-gradient(transparent, rgba(255,255,255,0.1)),
-    linear-gradient(transparent, rgba(255,255,255,0.05));
-  background-size: 2px 100px;
-  animation: rain 0.5s linear infinite;
-  z-index: -2;
-}
-
-/* フェード詩 */
-.poem-container {
-  position: absolute;
-  top: 10%;
-  width: 100%;
-  text-align: center;
-  font-size: 1.3rem;
-  animation: fadeInOut 10s ease-in-out infinite;
-  z-index: 1;
-}
-
-.poem-line {
-  margin: 1em 0;
-}
-
-@keyframes fadeInOut {
-  0% { opacity: 0; }
-  10% { opacity: 1; }
-  40% { opacity: 1; }
-  60% { opacity: 0; }
-  100% { opacity: 0; }
-}
-
-/* アイコンバー */
-.icon-bar {
-  position: absolute;
-  bottom: 20px;
-  width: 100%;
-  text-align: center;
-  z-index: 2;
-}
-
-.icon {
-  height: 60px;
-  margin: 0 20px;
-  transition: transform 0.3s;
-}
-
-.icon:hover {
-  transform: scale(1.1);
-}
-
-@keyframes rain {
-  0% { background-position: 0 0, 50px 0; }
-  100% { background-position: 0 100px, 50px 100px; }
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  pointer-events: none;
 }
