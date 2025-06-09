@@ -1,87 +1,14 @@
-/* --- ページ全体のリセット＆基本設定 --- */
-html, body {
+body {
   margin: 0;
   padding: 0;
-  width: 100vw;
-  height: 100vh;
-  box-sizing: border-box;
-  overflow: hidden;
 }
-
-/* --- 背景画像（絶対に表示されるように）--- */
 .background {
   position: fixed;
-  top: 0; left: 0;
+  inset: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 0;
-  /* ↓パスに注意！ディレクトリ直下ならこう */
-  background: url("image/haikei1.png") no-repeat center center;
+  background: url('image/haikei1.png') no-repeat center center;
   background-size: cover;
-  background-color: #333; /* 万が一画像が出なかった時に色で判別 */
-}
-
-/* --- 雨エフェクト用: 動作確認のためとりあえず水色の半透明レイヤー --- */
-.rain {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 1;
+  z-index: 0;
   pointer-events: none;
-  /* 雨が出ない場合、背景色で確認 */
-  background: rgba(0,200,255,0.05); /* 雨が無い場合うっすら水色に見える */
-}
-
-/* --- 詩とアイコンを前面に --- */
-.poem-container, .icon-bar {
-  position: relative;
-  z-index: 10;
-}
-
-/* --- 詩スタイルサンプル --- */
-.poem-container {
-  position: absolute;
-  top: 12vh;
-  width: 100vw;
-  text-align: center;
-  color: #fff;
-  font-size: 1.3rem;
-  text-shadow: 0 2px 8px #222, 0 0 20px #444;
-  font-family: "Yu Mincho", "serif";
-}
-
-.poem-line {
-  margin: 0.7em 0;
-}
-
-/* --- アイコンバー --- */
-.icon-bar {
-  position: absolute;
-  bottom: 8vh;
-  left: 0; right: 0;
-  display: flex;
-  justify-content: center;
-  gap: 4vw;
-}
-.icon {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  box-shadow: 0 4px 16px #0008;
-  background: #fff4;
-  transition: transform 0.2s;
-}
-.icon:hover { transform: scale(1.1); }
-
-/* --- 確認のため一番前に青枠 --- */
-body::after {
-  content: "CSS読めてる";
-  position: fixed;
-  top: 0; left: 0;
-  color: #00caff;
-  background: rgba(0,0,0,0.2);
-  font-size: 0.7rem;
-  padding: 1px 3px;
-  z-index: 99;
 }
