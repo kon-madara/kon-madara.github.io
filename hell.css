@@ -1,110 +1,109 @@
-/* ----- 地獄背景（ファイル名は修正済み！） ----- */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "Yu Mincho", serif;
-  background: #000;
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
-.recipe-bg {
+/* 地獄背景 */
+.hell-bg {
   position: fixed;
-  top: 0; left: 0;
+  inset: 0;
   width: 100vw;
   height: 100vh;
-  background: url('image/7655C68F-8669-472A-8F3F-55CAEEB4181A.png') no-repeat center center;
-  background-size: cover;
+  background: url('image/7655C68F-8669-472A-8F3F-55CAEEB4181A.png') center center/cover no-repeat;
   z-index: 0;
 }
 
-/* ----- レシピの白紙フレーム ----- */
-.recipe-frame {
+/* レシピカード */
+.recipe-container {
   position: relative;
-  z-index: 2;
+  width: 100vw;
+  min-height: 30vh;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  min-height: 40vh;
-  margin-top: 4vw;
+  z-index: 2;
   pointer-events: none;
 }
 
 .recipe-page {
-  background: rgba(255,250,240,0.90);
-  color: #6a4c3a;
-  font-size: 1.6rem;
-  line-height: 2.2rem;
-  border-radius: 22px;
-  box-shadow: 0 4px 24px 0 #0006, 0 0 0 8px #9d85744d;
-  padding: 2.3rem 2.4rem;
-  max-width: 94vw;
+  display: none;
   width: 95vw;
-  box-sizing: border-box;
-  margin: 0 auto;
-  opacity: 0;
-  transform: translateY(-12px);
-  transition: opacity .7s, transform .7s;
+  max-width: 700px;
+  margin: 3vh auto 0;
+  background: rgba(245, 235, 220, 0.93);
+  border-radius: 2rem;
+  border: 4px solid #8c5c53;
+  box-shadow: 0 0.6rem 2.4rem 0 rgba(90,10,0,0.16);
+  color: #6b4b3b;
+  font-family: "Yu Mincho", "游明朝", serif;
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+  letter-spacing: 0.05em;
+  text-align: left;
+  padding: 2rem 2.3rem 1.7rem 2.3rem;
   pointer-events: auto;
-  word-break: break-all;
 }
 
 .recipe-page.active {
-  opacity: 1;
-  transform: translateY(0);
+  display: block;
 }
 
-/* ----- ナビボタン（下部固定） ----- */
-.recipe-nav {
+/* 下部ボタン */
+.hell-buttons {
   position: fixed;
-  left: 0; bottom: 4vw;
+  bottom: 4vw;
+  left: 0; right: 0;
   width: 100vw;
   display: flex;
   justify-content: center;
-  gap: 6vw;
+  gap: 2vw;
   z-index: 10;
   pointer-events: none;
 }
-.recipe-nav button {
+
+.hell-buttons button {
   pointer-events: auto;
-  background: rgba(70,35,35,0.82);
+  min-width: 38vw;
+  max-width: 210px;
+  padding: 1.3rem 0;
+  margin: 0 0.8vw;
+  background: rgba(70,30,30,0.85);
   color: #fff;
-  font-size: 1.3rem;
-  font-family: "Yu Mincho", serif;
   border: none;
-  border-radius: 16px;
-  padding: 1rem 2.8rem;
-  box-shadow: 0 8px 24px #0005;
-  margin: 0 1vw;
+  border-radius: 1.2rem;
+  font-size: 1.5rem;
+  font-family: "Yu Mincho", "游明朝", serif;
+  box-shadow: 0 0.3rem 1.6rem 0 rgba(70,30,30,0.19);
   cursor: pointer;
-  transition: background .2s, color .2s, transform .15s;
-}
-.recipe-nav button:active {
-  background: #c63;
-  color: #fff3ec;
-  transform: scale(0.95);
+  transition: background 0.15s, box-shadow 0.15s;
+  letter-spacing: 0.05em;
 }
 
-/* ----- レスポンシブ調整（スマホ） ----- */
-@media screen and (max-width: 600px) {
-  .recipe-frame {
-    margin-top: 7vw;
-    min-height: 32vh;
-  }
+.hell-buttons button:active {
+  background: #8c2626;
+}
+
+/* 画面幅スマホ向け最適化 */
+@media (max-width: 600px) {
   .recipe-page {
-    font-size: 1.13rem;
-    line-height: 1.75rem;
-    padding: 1.18rem 0.9rem;
-    max-width: 99vw;
-    width: 99vw;
+    font-size: 1.2rem;
+    padding: 1.1rem 1.1rem 0.8rem 1.1rem;
+    line-height: 2.0rem;
   }
-  .recipe-nav {
-    bottom: 2vw;
-    gap: 3vw;
+  .hell-buttons button {
+    font-size: 1.2rem;
+    min-width: 41vw;
+    padding: 1rem 0;
+    border-radius: 1rem;
   }
-  .recipe-nav button {
-    padding: 0.8rem 1.8rem;
-    font-size: 1.07rem;
-    border-radius: 13px;
+}
+
+/* Safari/Chrome差異対策：背景/カード/ボタン中央揃えの強制 */
+@media not all and (min-resolution:.001dpcm) {
+  @supports (-webkit-appearance:none) {
+    .recipe-container {
+      align-items: flex-start;
+    }
+    .hell-buttons {
+      bottom: 3vw;
+    }
+    .recipe-page {
+      margin-top: 2.5vh;
+    }
   }
 }
