@@ -1,24 +1,27 @@
 let currentPage = 0;
-const pages = document.querySelectorAll('.recipe-page');
+const pages = document.querySelectorAll(".recipe-page");
 
-function updatePage() {
-  pages.forEach((p, i) => {
-    p.classList.toggle('active', i === currentPage);
+function updatePages() {
+  pages.forEach((el, i) => {
+    el.classList.toggle("active", i === currentPage);
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 }
 
-document.getElementById('nextBtn').addEventListener('click', () => {
+document.getElementById("nextBtn").addEventListener("click", () => {
   if (currentPage < pages.length - 1) {
     currentPage++;
-    updatePage();
+    updatePages();
   }
 });
 
-document.getElementById('prevBtn').addEventListener('click', () => {
+document.getElementById("prevBtn").addEventListener("click", () => {
   if (currentPage > 0) {
     currentPage--;
-    updatePage();
+    updatePages();
   }
 });
 
-document.addEventListener('DOMContentLoaded', updatePage);
+document.addEventListener("DOMContentLoaded", () => {
+  updatePages();
+});
