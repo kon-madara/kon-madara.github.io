@@ -2,17 +2,21 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>納魂粥 - 地獄葬送レシピ</title>
+  <title>地獄葬送レシピ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="hell.css">
 </head>
 <body>
-  <div class="recipe-wrapper">
-    <div class="recipe-content">
-      <h1>納魂粥（のうこんがゆ）</h1>
-      <p>魂を鎮め、身を癒す──地獄の台所より届けし、黄泉の朝餉。</p>
+  <div class="background"></div>
 
-      <h2>材料（1人前）</h2>
+  <div class="recipe-container">
+    <!-- 納魂粥 -->
+    <div class="recipe-page active">
+      <p><strong>納魂粥（のうこんがゆ）</strong></p>
+      <p>魂を鎮め、身を癒す──地獄の台所より届けし、黄泉の朝餉。</p>
+    </div>
+    <div class="recipe-page">
+      <p><strong>材料（1人前）</strong></p>
       <ul>
         <li>オートミール … 30g（米化タイプ推奨）</li>
         <li>水 … 120ml（粥状になるまで調整可）</li>
@@ -23,23 +27,59 @@
         <li>青ねぎ・ごま・刻み海苔 … お好みで</li>
         <li>狐火のごとき祈念 … 適量</li>
       </ul>
-
-      <h2>作り方</h2>
+    </div>
+    <div class="recipe-page">
+      <p><strong>作り方</strong></p>
       <ol>
-        <li><strong>煮の儀式：</strong> 小鍋に水を入れ、オートミールを加える。中火で火を入れ、かき混ぜる。</li>
-        <li><strong>魂を溶かす：</strong> 粥状になったら納豆を投入。粘りを解き、なじませる。</li>
-        <li><strong>精を宿す：</strong> 卵を割り入れ、黄身が固まるまで煮る。蓋をして蒸らすのもよし。</li>
-        <li><strong>塩の導き：</strong> 醤油と白だしで味を調え、必要なら塩ひとつまみ。</li>
-        <li><strong>仕上げの封印：</strong> 盛りつけ、薬味をのせ、狐火の湯気をまとえば完成。</li>
+        <li>小鍋に水を入れ、オートミールを加える。中火で火を入れ、時折かき混ぜる。</li>
+        <li>粥状になったら火を弱め、納豆をそのまま投入し、全体になじませる。</li>
+        <li>卵を割り入れ、黄身がほどよく固まるまで煮る。蓋をして1分ほど蒸らしてもよい。</li>
+        <li>醤油と白だしで味を整える。必要であれば、塩をひとつまみ。</li>
+        <li>器に盛り、お好みで青ねぎ・ごま・海苔をのせる。狐火が揺らぐような湯気が立てば完成。</li>
       </ol>
-
-      <h2>✶ 効能 ✶</h2>
+    </div>
+    <div class="recipe-page">
+      <p><strong>✶ 効能 ✶</strong></p>
       <ul>
         <li>内臓にやさしく、心にあたたかい</li>
         <li>塩分・脂質控えめ、満腹感あり</li>
         <li>一杯で「現世と地獄の狭間」へ誘う粥</li>
       </ul>
     </div>
+
+    <!-- 静穏葬送麺 -->
+    <div class="recipe-page">
+      <p><strong>静穏葬送麺（せいおんそうそうめん）</strong></p>
+      <p>地獄の底にも静けさはある──豆もやし一袋で魂を穏やかに。</p>
+    </div>
+    <div class="recipe-page">
+      <p><strong>材料</strong></p>
+      <ul>
+        <li>豆もやし … 1袋</li>
+        <li>鶏がらスープの素 … 適量</li>
+        <li>塩 … 適量</li>
+        <li>醤油 … 適量</li>
+        <li>ニンニクチューブ … 少々</li>
+        <li>（お好みで）ねぎ・卵など</li>
+      </ul>
+    </div>
+    <div class="recipe-page">
+      <p><strong>作り方</strong></p>
+      <ol>
+        <li>豆もやしをレンチンする（目安は600wで3分）。</li>
+        <li>その間にスープを用意（全て目分量、味見は必ず）。</li>
+        <li>スープに豆もやしを投入。</li>
+        <li>お好みでねぎ・卵などをトッピング。</li>
+      </ol>
+      <p>※スープは好みで自由にアレンジ可能。</p>
+    </div>
   </div>
+
+  <div class="nav-btns">
+    <button id="prevBtn">&larr; 戻る</button>
+    <button id="nextBtn">進む &rarr;</button>
+  </div>
+
+  <script src="hell.js"></script>
 </body>
 </html>
