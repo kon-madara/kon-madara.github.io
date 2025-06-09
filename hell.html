@@ -1,21 +1,45 @@
-<div class="recipe-container">
-  <div class="recipe-page" id="page1">
-    <h2>納魂粥</h2>
-    <ul>
-      <li>オートミール</li>
-      <li>納豆</li>
-      <li>卵</li>
-    </ul>
-    <p>1. オートミールを熱湯でふやかす。<br>
-       2. 納豆と卵を混ぜて完成。</p>
-    <div class="comment">🦊「魂まで栄養が届くやろ……たぶんな？」</div>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>地獄葬送レシピ帳</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="hell.css">
+</head>
+<body>
+  <div class="background"></div>
+  <div class="recipe-container">
+    <div class="recipe-page active" id="page1">
+      <h2>納魂粥</h2>
+      <ul>
+        <li>オートミール 30g</li>
+        <li>納豆 1パック</li>
+        <li>卵 1個</li>
+        <li>水 適量</li>
+      </ul>
+      <p>
+        オートミールを水でふやかし、納豆・卵と混ぜて加熱。魂も胃袋も満たす地獄粥。
+      </p>
+    </div>
+    <div class="recipe-page" id="page2">
+      <h2>地獄葬送中華粥</h2>
+      <ul>
+        <li>オートミール 30g</li>
+        <li>シーフードミックス 適量</li>
+        <li>卵 1個</li>
+        <li>中華スープの素 小さじ1</li>
+        <li>水 適量</li>
+      </ul>
+      <p>
+        材料を全て鍋にぶち込んで煮るだけ。混ぜすぎ注意、魂が抜ける。
+      </p>
+    </div>
+    <!-- 必要ならページ追加 -->
   </div>
-  <div class="recipe-page hidden" id="page2">
-    <!-- 次のレシピ -->
-  </div>
-  <!-- さらにページ追加OK -->
-  <div class="nav-buttons">
+  <div class="buttons">
     <button id="prevBtn">← 戻る</button>
     <button id="nextBtn">進む →</button>
   </div>
-</div>
+  <script src="hell.js"></script>
+</body>
+</html>
