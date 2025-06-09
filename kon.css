@@ -1,93 +1,67 @@
-body {
-  background: #f6f2e6;
+body.kon-notebook {
+  background: url('https://madarafox.github.io/kon-madara-group/image/A_digital_illustration_in_a_traditional_Japanese_a.png') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Shippori Mincho B1', serif;
+  color: #2c2c2c;
   margin: 0;
-  min-height: 100vh;
+  padding: 0;
 }
 
+/* 見開き帳面のベース */
 .book {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  overflow: hidden;
-}
-
-#pages {
-  display: flex;
+  perspective: 1500px;
+  width: 100%;
+  max-width: 720px;
+  margin: 60px auto;
   position: relative;
-  width: 90vw;
-  max-width: 500px;
-  height: 60vw;
-  max-height: 350px;
-  perspective: 2000px;
+  min-height: 400px;
 }
 
 .page {
-  width: 50%;
-  height: 100%;
-  background: #fffefa;
-  border: 2px solid #d7ba98;
-  box-shadow: 0 6px 20px #b39e7d55;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.88);
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  padding: 50px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
   position: absolute;
   top: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: "serif";
-  font-size: 1.2rem;
-  backface-visibility: hidden;
-  transition: transform 0.7s cubic-bezier(0.5,1,0.7,1);
-  z-index: 1;
-  visibility: hidden;
-}
-
-.page.left {
   left: 0;
-  border-right: none;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transition: transform 1s ease;
+  line-height: 1.8;
+  backdrop-filter: blur(1.5px);
+}
+
+.front {
   z-index: 2;
-}
-.page.right {
-  left: 50%;
-  border-left: none;
+  transform: rotateY(0deg);
 }
 
-/* 捲りアニメーション */
-.page.turn {
-  transform: rotateY(-180deg) translateX(-100%);
-  z-index: 0;
+.back {
+  z-index: 1;
+  transform: rotateY(-180deg);
 }
 
-.button-row {
-  margin-top: 1.2em;
-  display: flex;
-  gap: 1em;
+.page.flipped {
+  transform: rotateY(-180deg);
+  z-index: 3;
 }
 
-button {
-  padding: 0.5em 1.2em;
-  border-radius: 0.7em;
-  background: #d7ba98;
+button.next,
+button.prev {
+  margin-top: 40px;
+  padding: 10px 20px;
+  font-family: inherit;
+  background-color: #4c6cb3;
   color: #fff;
-  font-weight: bold;
   border: none;
-  font-size: 1em;
+  border-radius: 4px;
   cursor: pointer;
-  box-shadow: 0 2px 8px #b39e7d33;
-  transition: background 0.2s;
-}
-button:hover {
-  background: #b39e7d;
+  float: right;
 }
 
-@media (max-width: 600px) {
-  #pages {
-    width: 98vw;
-    max-width: 98vw;
-    height: 50vw;
-    max-height: 240px;
-  }
-  .page {
-    font-size: 1em;
-  }
+button.prev {
+  float: left;
 }
