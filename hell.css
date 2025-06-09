@@ -3,7 +3,7 @@ html, body {
   margin: 0;
   padding: 0;
   font-family: 'Yu Mincho', 'Hiragino Mincho ProN', serif;
-  min-height: 100vh;
+  overflow: hidden;
 }
 
 .background {
@@ -12,9 +12,14 @@ html, body {
   width: 100vw;
   height: 100vh;
   z-index: 0;
-  background: url('image/7655C68F-8669-472A-8F3F-55CAEEB4181A.png') center center/cover no-repeat;
+  background-image: url('image/7655C68F-8669-472A-8F3F-55CAEEB4181A.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
+/* レシピ本文 */
 .recipe-container {
   position: relative;
   z-index: 2;
@@ -24,6 +29,7 @@ html, body {
   align-items: flex-start;
   margin-top: 6vw;
   min-height: 35vh;
+  overflow: hidden;
 }
 
 .recipe-page {
@@ -59,7 +65,7 @@ html, body {
   }
 }
 
-/* ナビボタン下部固定＆赤黒地獄スタイル */
+/* ナビボタン */
 .nav-btns {
   position: fixed;
   bottom: 3vw;
