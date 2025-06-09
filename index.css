@@ -20,7 +20,7 @@ body, html {
 /* ✍️ 詩フェード */
 .poem-container {
   position: absolute;
-  top: 10%;
+  top: 8%;
   width: 100%;
   text-align: center;
   font-size: 1.3rem;
@@ -31,7 +31,7 @@ body, html {
   margin: 1em 0;
 }
 
-/* 🔁 フェードアニメーション */
+/* 🔁 フェード */
 @keyframes fadeInOut {
   0% { opacity: 0; }
   10% { opacity: 1; }
@@ -49,9 +49,8 @@ body, html {
 }
 
 .icon {
-  height: 40px;       /* 👈 小さめに調整 */
-  width: auto;
-  margin: 0 10px;
+  height: 40px;
+  margin: 0 15px;
   transition: transform 0.3s;
 }
 
