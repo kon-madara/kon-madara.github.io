@@ -31,7 +31,7 @@ body, html {
   margin: 1em 0;
 }
 
-/* 🔁 フェード */
+/* 🔁 フェードアニメーション */
 @keyframes fadeInOut {
   0% { opacity: 0; }
   10% { opacity: 1; }
@@ -49,8 +49,9 @@ body, html {
 }
 
 .icon {
-  height: 60px;
-  margin: 0 20px;
+  height: 40px;       /* 👈 小さめに調整 */
+  width: auto;
+  margin: 0 10px;
   transition: transform 0.3s;
 }
 
