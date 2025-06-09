@@ -2,26 +2,28 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>地獄葬送レシピ帳</title>
+  <title>地獄葬送レシピ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="hell.css">
 </head>
 <body>
-  <!-- 1ページごとに .recipe-page を作って増やせばレシピ本風に -->
-  <div class="recipe-card recipe-page active">
-    オートミールを水でふやかし、納豆・卵と混ぜて加熱。<br>
-    魂も胃袋も満たす地獄粥。
+  <div class="hell-bg"></div>
+
+  <div class="recipe-page active">
+    <div class="recipe-card">
+      オートミールを水でふやかし、納豆・卵と混ぜて加熱。<br>
+      魂も胃袋も満たす地獄粥。
+    </div>
   </div>
-  <!-- 例：2ページ目を追加したい時
-  <div class="recipe-card recipe-page">
-    シーフードミックスとオートミールを合わせてレンチン。<br>
-    中華スープ風に仕立てる地獄中華粥。
-  </div>
+  <!-- 2ページ目以降はここに追加してOK
+  <div class="recipe-page">...</div>
   -->
-  <div class="nav-buttons">
+
+  <div class="buttons">
     <button id="prevBtn">← 戻る</button>
     <button id="nextBtn">進む →</button>
   </div>
+
   <script src="hell.js"></script>
 </body>
 </html>
