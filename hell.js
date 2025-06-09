@@ -1,23 +1,24 @@
-let currentPage = 1;
-const totalPages = document.querySelectorAll('.recipe-page').length;
+let currentPage = 0;
+const pages = document.querySelectorAll('.recipe-page');
 
-function updatePageVisibility() {
-  document.querySelectorAll('.recipe-page').forEach((el, idx) => {
-    el.classList.toggle('active', idx === currentPage - 1);
+function updatePage() {
+  pages.forEach((p, i) => {
+    p.classList.toggle('active', i === currentPage);
   });
 }
 
-document.addEventListener("DOMContentLoaded", updatePageVisibility);
-
-document.getElementById("nextBtn").addEventListener("click", () => {
-  if (currentPage < totalPages) {
+document.getElementById('nextBtn').addEventListener('click', () => {
+  if (currentPage < pages.length - 1) {
     currentPage++;
-    updatePageVisibility();
+    updatePage();
   }
 });
-document.getElementById("prevBtn").addEventListener("click", () => {
-  if (currentPage > 1) {
+
+document.getElementById('prevBtn').addEventListener('click', () => {
+  if (currentPage > 0) {
     currentPage--;
-    updatePageVisibility();
+    updatePage();
   }
 });
+
+document.addEventListener('DOMContentLoaded', updatePage);
