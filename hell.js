@@ -7,6 +7,7 @@ function updatePageVisibility() {
   });
 }
 
+// 初期表示
 document.addEventListener("DOMContentLoaded", updatePageVisibility);
 
 document.getElementById("nextBtn").addEventListener("click", () => {
